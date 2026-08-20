@@ -7,10 +7,20 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, Helvetica, sans-serif; }
+    html { scroll-behavior: smooth; }
     body { background-color: #eef2f5; color: #222; font-size: 13px; line-height: 1.3; }
     
     .wrapper { width: 100%; max-width: 1200px; margin: 0 auto; background: #fff; box-shadow: 0 0 12px rgba(0,0,0,0.15); }
     
+    /* Sticky Header Container */
+    .sticky-header-group {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #fff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
     /* Header */
     .header-top { padding: 12px 20px; background: #fff; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; }
     .brand-box { display: flex; align-items: center; gap: 12px; }
@@ -38,6 +48,9 @@
     .nav-menu a { color: #fff; padding: 12px 20px; text-decoration: none; font-weight: bold; font-size: 13px; display: block; }
     .nav-menu a.active, .nav-menu a:hover { background: #001833; color: #ffaa00; }
 
+    /* Fix jump position when clicking links */
+    section { scroll-margin-top: 135px; }
+
     /* Hero */
     .hero-section { background: linear-gradient(135deg, #001f3f 0%, #003366 100%); color: #fff; padding: 30px 20px; position: relative; }
     .hero-flex { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
@@ -63,7 +76,20 @@
       border: 2px dashed #000; box-shadow: 0 0 10px rgba(0,0,0,0.5); z-index: 2;
     }
     .badge-quality strong { font-size: 18px; line-height: 1; }
-    .hero-img { max-width: 100%; max-height: 220px; border-radius: 6px; object-fit: cover; border: 2px solid #3380cc; }
+    .hero-img { max-width: 100%; max-height: 220px; border-radius: 6px; object-fit: contain; background: #fff; padding: 5px; }
+
+    /* About Section Styling */
+    .about-card { background: #f8fbff; border: 1px solid #d0e1f9; border-radius: 6px; padding: 20px; }
+    .about-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 20px; align-items: center; }
+    .about-text p { font-size: 13px; color: #444; line-height: 1.6; margin-bottom: 12px; }
+    .about-highlights { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 15px; }
+    .about-item { display: flex; align-items: center; gap: 8px; font-weight: bold; color: #08284d; font-size: 12px; }
+    .about-item i { color: #ff5500; font-size: 14px; }
+    .about-stats { background: #08284d; color: #fff; padding: 20px; border-radius: 6px; text-align: center; }
+    .stat-box { margin-bottom: 15px; }
+    .stat-box:last-child { margin-bottom: 0; }
+    .stat-box h3 { font-size: 28px; color: #ffaa00; font-weight: 900; }
+    .stat-box p { font-size: 11px; color: #e6e6e6; }
 
     /* Layout Sections */
     .section-block { padding: 20px; }
@@ -74,7 +100,7 @@
     /* Services Grid */
     .grid-services { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; }
     .card-service { border: 1px solid #ccc; border-radius: 4px; overflow: hidden; text-align: center; background: #fff; }
-    .card-service img { width: 100%; height: 95px; object-fit: cover; display: block; }
+    .card-service img { width: 100%; height: 95px; object-fit: contain; padding: 5px; background: #fcfcfc; display: block; }
     .card-service .card-desc { background: #08284d; color: #fff; padding: 8px 4px; min-height: 52px; }
     .card-service h4 { font-size: 12px; margin-bottom: 2px; }
     .card-service p { font-size: 9px; color: #b3d1ff; }
@@ -87,7 +113,7 @@
     /* Products Grid */
     .grid-products { display: grid; grid-template-columns: repeat(8, 1fr); gap: 8px; text-align: center; }
     .card-product { border: 1px solid #ddd; padding: 6px; border-radius: 4px; background: #fff; }
-    .card-product img { width: 100%; height: 65px; object-fit: cover; border-radius: 3px; margin-bottom: 4px; }
+    .card-product img { width: 100%; height: 65px; object-fit: contain; border-radius: 3px; margin-bottom: 4px; background: #f9f9f9; }
     .card-product span { font-size: 10px; font-weight: bold; display: block; color: #333; }
 
     /* Recent Work */
@@ -102,7 +128,7 @@
     .why-box i { font-size: 24px; color: #08284d; display: block; margin-bottom: 6px; }
     .why-box span { font-size: 10px; font-weight: bold; display: block; }
 
-    /* AUTO-SLIDING TESTIMONIAL STYLING - UPDATED FOR BOLDER & LARGER TEXT */
+    /* Testimonial Box */
     .testimonial-box { 
       flex: 1; 
       background: #eef4fb; 
@@ -145,16 +171,12 @@
       border: 2px solid #08284d; 
       flex-shrink: 0;
     }
-    
-    /* Bolder and Larger Review Text */
     .testimonial-item p { 
       font-size: 13px; 
       color: #111; 
       font-weight: bold; 
       line-height: 1.35;
     }
-    
-    /* Bolder and Larger Customer Name */
     .testimonial-item strong { 
       font-size: 12px; 
       display: block; 
@@ -170,7 +192,7 @@
       50%, 63%       { transform: translateX(-50%); }
       66.66%, 79.66% { transform: translateX(-66.6666%); }
       83.33%, 96.33% { transform: translateX(-83.3333%); }
-      100%          { transform: translateX(0%); }
+      100%           { transform: translateX(0%); }
     }
 
     /* Enquiry */
@@ -207,10 +229,13 @@
     .footer-bottom-row { padding: 8px 20px; background: #000d1a; display: flex; justify-content: space-between; color: #aaa; font-size: 10px; flex-wrap: wrap; gap: 10px; }
 
     @media (max-width: 900px) {
+      section { scroll-margin-top: 200px; }
       .grid-services, .grid-work { grid-template-columns: repeat(3, 1fr); }
       .grid-products { grid-template-columns: repeat(4, 1fr); }
+      .about-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 768px) {
+      section { scroll-margin-top: 240px; }
       .hero-flex, .split-layout, .enquiry-layout { flex-direction: column; grid-template-columns: 1fr; }
       .hero-left, .hero-right, .testimonial-box { width: 100%; max-width: 100%; }
       .grid-services, .grid-products, .grid-work { grid-template-columns: repeat(2, 1fr); }
@@ -223,41 +248,44 @@
 
 <div class="wrapper">
 
-  <!-- Header -->
-  <header class="header-top">
-    <div class="brand-box">
-      <div class="logo-sp">SP</div>
-      <div class="brand-details">
-        <h1>SP ENTERPRISES</h1>
-        <p class="tagline-red">Complete Security Solutions</p>
-        <p class="tagline-sub">CCTV | BioMetric | Intercom | Access Control</p>
-      </div>
-    </div>
-    <div class="header-right">
-      <div class="contact-info">
-        <i class="fab fa-whatsapp wa-green-icon"></i>
-        <div class="contact-text">
-          <span>Call / WhatsApp</span>
-          <strong>9004270001</strong>
-          <p><i class="fas fa-map-marker-alt" style="color:red;"></i> Navi Mumbai</p>
+  <!-- Fixed Top Header & Nav Container -->
+  <div class="sticky-header-group">
+    <!-- Header -->
+    <header class="header-top">
+      <div class="brand-box">
+        <div class="logo-sp">SP</div>
+        <div class="brand-details">
+          <h1>SP ENTERPRISES</h1>
+          <p class="tagline-red">Complete Security Solutions</p>
+          <p class="tagline-sub">CCTV | BioMetric | Intercom | Access Control</p>
         </div>
       </div>
-      <a href="https://wa.me/919004270001" class="btn-header-wa"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
-    </div>
-  </header>
+      <div class="header-right">
+        <div class="contact-info">
+          <i class="fab fa-whatsapp wa-green-icon"></i>
+          <div class="contact-text">
+            <span>Call / WhatsApp</span>
+            <strong>9004270001</strong>
+            <p><i class="fas fa-map-marker-alt" style="color:red;"></i> Navi Mumbai</p>
+          </div>
+        </div>
+        <a href="https://wa.me/919004270001" class="btn-header-wa"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
+      </div>
+    </header>
 
-  <!-- Navbar -->
-  <nav class="navbar">
-    <ul class="nav-menu">
-      <li><a href="#home" class="active"><i class="fas fa-home"></i> Home</a></li>
-      <li><a href="#about">About Us</a></li>
-      <li><a href="#services">Our Services <i class="fas fa-caret-down"></i></a></li>
-      <li><a href="#products">Products</a></li>
-      <li><a href="#work">Our Work</a></li>
-      <li><a href="#enquiry">Enquiry</a></li>
-      <li><a href="#contact">Contact Us</a></li>
-    </ul>
-  </nav>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <ul class="nav-menu">
+        <li><a href="#home" class="active"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#services">Our Services <i class="fas fa-caret-down"></i></a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#work">Our Work</a></li>
+        <li><a href="#enquiry">Enquiry</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+    </nav>
+  </div>
 
   <!-- Hero Section -->
   <section class="hero-section" id="home">
@@ -280,7 +308,7 @@
             <div class="feat-icon"><i class="fas fa-shield-alt"></i></div>
             <span>24/7 Security Monitoring</span>
           </div>
-          . <div class="feat-box">
+          <div class="feat-box">
             <div class="feat-icon"><i class="fas fa-tools"></i></div>
             <span>Professional Installation</span>
           </div>
@@ -293,7 +321,42 @@
           <strong>100%</strong>
           <span>TRUSTED</span>
         </div>
-        <img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=600&auto=format&fit=crop" alt="CCTV Security System" class="hero-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Hikvision_Dome_Camera.jpg/640px-Hikvision_Dome_Camera.jpg" alt="Dome Security Camera" class="hero-img">
+      </div>
+    </div>
+  </section>
+
+  <!-- About Us Section -->
+  <section class="section-block" id="about">
+    <h2 class="sec-header"><span class="slash">//</span> About SP Enterprises <span>/ Trusted Security Solutions Partner</span></h2>
+    <div class="about-card">
+      <div class="about-grid">
+        <div class="about-text">
+          <p><strong>SP Enterprises</strong> is a premier security and surveillance systems provider based in Navi Mumbai. We specialize in end-to-end installation, repair, and maintenance of high-definition CCTV camera systems, biometric attendance devices, video intercoms, and electronic access control systems.</p>
+          <p>Whether for residential housing societies, commercial offices, industrial plants, or retail shops, our expert team delivers custom-tailored security setups engineered to protect what matters most to you.</p>
+          
+          <div class="about-highlights">
+            <div class="about-item"><i class="fas fa-check-circle"></i> Certified Installation Technicians</div>
+            <div class="about-item"><i class="fas fa-check-circle"></i> Complete On-Site Technical Support</div>
+            <div class="about-item"><i class="fas fa-check-circle"></i> Genuine Equipment Brands</div>
+            <div class="about-item"><i class="fas fa-check-circle"></i> Affordable AMC Plans</div>
+          </div>
+        </div>
+
+        <div class="about-stats">
+          <div class="stat-box">
+            <h3>500+</h3>
+            <p>Projects Completed</p>
+          </div>
+          <div class="stat-box">
+            <h3>100%</h3>
+            <p>Client Satisfaction</p>
+          </div>
+          <div class="stat-box">
+            <h3>24/7</h3>
+            <p>Support Availability</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -304,42 +367,47 @@
     
     <div class="grid-services">
       <div class="card-service">
-        <img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=300" alt="CCTV Installation">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Security_camera_02.jpg/640px-Security_camera_02.jpg" alt="CCTV Installation">
         <div class="card-desc">
           <h4>CCTV Installation</h4>
           <p>Home | Office | Shop | Society</p>
         </div>
       </div>
+
       <div class="card-service">
-        <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=300" alt="CCTV Repair">
+        <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=400&auto=format&fit=crop" alt="CCTV Repair">
         <div class="card-desc">
           <h4>CCTV Repair & Service</h4>
           <p>Quick & Reliable Service</p>
         </div>
       </div>
+
       <div class="card-service">
-        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=300" alt="DVR NVR Setup">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/DVR_Back_Panel.jpg/640px-DVR_Back_Panel.jpg" alt="DVR NVR Setup">
         <div class="card-desc">
           <h4>DVR / NVR Setup</h4>
           <p>Recording & Storage</p>
         </div>
       </div>
+
       <div class="card-service">
-        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=300" alt="Biometric Attendance">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Fingerprint_scanner_in_use.jpg/640px-Fingerprint_scanner_in_use.jpg" alt="Biometric Attendance">
         <div class="card-desc">
           <h4>Biometric Attendance</h4>
           <p>Time & Attendance Systems</p>
         </div>
       </div>
+
       <div class="card-service">
-        <img src="https://images.unsplash.com/photo-1558002038-1055907df827?w=300" alt="Video Intercom">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Intercom_panel.jpg/640px-Intercom_panel.jpg" alt="Video Intercom">
         <div class="card-desc">
           <h4>Video Intercom</h4>
           <p>Audio / Video Door Phones</p>
         </div>
       </div>
+
       <div class="card-service">
-        <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=300" alt="Access Control">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/RFID_Access_Control.jpg/640px-RFID_Access_Control.jpg" alt="Access Control">
         <div class="card-desc">
           <h4>Access Control</h4>
           <p>Card / Fingerprint Access</p>
@@ -349,14 +417,15 @@
 
     <div class="grid-services-wide">
       <div class="card-wide">
-        <img src="https://images.unsplash.com/photo-1581092335397-9583fe92d232?w=400" alt="AMC Maintenance">
+        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=500&auto=format&fit=crop" alt="AMC Maintenance">
         <div class="card-desc">
           <h4>AMC / Maintenance</h4>
           <p>Annual Maintenance Contracts</p>
         </div>
       </div>
+
       <div class="card-wide">
-        <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400" alt="Mobile Monitoring">
+        <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=500&auto=format&fit=crop" alt="Mobile Monitoring">
         <div class="card-desc">
           <h4>Mobile Monitoring</h4>
           <p>Live View on Your Phone (Anywhere)</p>
@@ -365,18 +434,42 @@
     </div>
   </section>
 
-  <!-- Products -->
+  <!-- Products We Provide -->
   <section class="section-block" id="products">
     <h2 class="sec-header"><span class="slash">//</span> Products We Provide</h2>
     <div class="grid-products">
-      <div class="card-product"><img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=200" alt="Bullet Camera"><span>Bullet Camera</span></div>
-      <div class="card-product"><img src="https://images.unsplash.com/photo-1580894732444-8ecded7900cd?w=200" alt="Dome Camera"><span>Dome Camera</span></div>
-      <div class="card-product"><img src="https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?w=200" alt="IP Camera"><span>IP Camera</span></div>
-      <div class="card-product"><img src="https://images.unsplash.com/photo-1508873696983-2df515122519?w=200" alt="PTZ Camera"><span>PTZ Camera</span></div>
-      <div class="card-product"><img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=200" alt="DVR NVR"><span>DVR / NVR</span></div>
-      <div class="card-product"><img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=200" alt="Biometric Device"><span>Biometric Device</span></div>
-      <div class="card-product"><img src="https://images.unsplash.com/photo-1558002038-1055907df827?w=200" alt="Video Intercom"><span>Video Intercom</span></div>
-      <div class="card-product"><img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=200" alt="Access Control"><span>Access Control</span></div>
+      <div class="card-product">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Security_camera_02.jpg/320px-Security_camera_02.jpg" alt="Bullet Camera">
+        <span>Bullet Camera</span>
+      </div>
+      <div class="card-product">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Hikvision_Dome_Camera.jpg/320px-Hikvision_Dome_Camera.jpg" alt="Dome Camera">
+        <span>Dome Camera</span>
+      </div>
+      <div class="card-product">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/IP_camera_wireless.jpg/320px-IP_camera_wireless.jpg" alt="IP Camera">
+        <span>IP Camera</span>
+      </div>
+      <div class="card-product">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/PTZ_security_camera.jpg/320px-PTZ_security_camera.jpg" alt="PTZ Camera">
+        <span>PTZ Camera</span>
+      </div>
+      <div class="card-product">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/DVR_Back_Panel.jpg/320px-DVR_Back_Panel.jpg" alt="DVR NVR">
+        <span>DVR / NVR</span>
+      </div>
+      <div class="card-product">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Fingerprint_scanner_in_use.jpg/320px-Fingerprint_scanner_in_use.jpg" alt="Biometric Device">
+        <span>Biometric Device</span>
+      </div>
+      <div class="card-product">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Intercom_panel.jpg/320px-Intercom_panel.jpg" alt="Video Intercom">
+        <span>Video Intercom</span>
+      </div>
+      <div class="card-product">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/RFID_Access_Control.jpg/320px-RFID_Access_Control.jpg" alt="Access Control">
+        <span>Access Control</span>
+      </div>
     </div>
   </section>
 
@@ -384,16 +477,16 @@
   <section class="section-block" id="work">
     <h2 class="sec-header"><span class="slash">//</span> Our Recent Work</h2>
     <div class="grid-work">
-      <img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=300" alt="Work 1">
-      <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=300" alt="Work 2">
-      <img src="https://images.unsplash.com/photo-1580894732444-8ecded7900cd?w=300" alt="Work 3">
-      <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=300" alt="Work 4">
-      <img src="https://images.unsplash.com/photo-1558002038-1055907df827?w=300" alt="Work 5">
-      <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=300" alt="Work 6">
+      <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=300&auto=format&fit=crop" alt="Work 1">
+      <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=300&auto=format&fit=crop" alt="Work 2">
+      <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=300&auto=format&fit=crop" alt="Work 3">
+      <img src="https://images.unsplash.com/photo-1577495508048-b635879837f1?w=300&auto=format&fit=crop" alt="Work 4">
+      <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=300&auto=format&fit=crop" alt="Work 5">
+      <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?w=300&auto=format&fit=crop" alt="Work 6">
     </div>
   </section>
 
-  <!-- Why Choose Us & Updated Customer Reviews -->
+  <!-- Why Choose Us & Customer Reviews -->
   <section class="section-block">
     <div class="split-layout">
       <div class="why-us">
@@ -408,59 +501,53 @@
         </div>
       </div>
       
-      <!-- Auto-Sliding Customer Reviews with Building & Office Images -->
+      <!-- Customer Reviews -->
       <div class="testimonial-box">
         <div class="testimonial-head">★ Customer Says ★</div>
         
         <div class="testimonial-slider-track">
-          <!-- Review 1: Puja Thombre -->
           <div class="testimonial-item">
-            <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=200" alt="Building Premises" class="avatar-img">
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&auto=format&fit=crop" alt="Puja Thombre" class="avatar-img">
             <div>
               <p>"Excellent service! Installed 8 CCTV cameras at our society premises in Vashi."</p>
               <strong>– Puja Thombre</strong>
             </div>
           </div>
 
-          <!-- Review 2: Poonam -->
           <div class="testimonial-item">
-            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=200" alt="Corporate Office" class="avatar-img">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&auto=format&fit=crop" alt="Poonam" class="avatar-img">
             <div>
               <p>"Got biometric attendance installed for our office staff. Works seamlessly!"</p>
               <strong>– Poonam</strong>
             </div>
           </div>
 
-          <!-- Review 3: Sachin Chavan -->
           <div class="testimonial-item">
-            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=200" alt="Commercial Building" class="avatar-img">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop" alt="Sachin Chavan" class="avatar-img">
             <div>
               <p>"Very reliable team. Solved our video intercom issue within hours."</p>
               <strong>– Sachin Chavan</strong>
             </div>
           </div>
 
-          <!-- Review 4: Sushant Bhosle -->
           <div class="testimonial-item">
-            <img src="https://images.unsplash.com/photo-1577495508048-b635879837f1?w=200" alt="Office Setup" class="avatar-img">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&auto=format&fit=crop" alt="Sushant Bhosle" class="avatar-img">
             <div>
               <p>"Best price for IP Cameras in Navi Mumbai. Continuous support and clear night vision."</p>
               <strong>– Sushant Bhosle</strong>
             </div>
           </div>
 
-          <!-- Review 5: Tanaji Algude -->
           <div class="testimonial-item">
-            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=200" alt="Residential Complex" class="avatar-img">
+            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&auto=format&fit=crop" alt="Tanaji Algude" class="avatar-img">
             <div>
               <p>"Signed an AMC contract for our building security. Prompt response every time."</p>
               <strong>– Tanaji Algude</strong>
             </div>
           </div>
 
-          <!-- Review 6: Rushikesh Shewale -->
           <div class="testimonial-item">
-            <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?w=200" alt="Corporate Premises" class="avatar-img">
+            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=200&auto=format&fit=crop" alt="Rushikesh Shewale" class="avatar-img">
             <div>
               <p>"Top-notch access control installation for our office premise. Smooth setup experience."</p>
               <strong>– Rushikesh Shewale</strong>
@@ -492,9 +579,9 @@
         </form>
       </div>
 
-      <div class="wa-direct-panel">
+      <div class="wa-direct-panel" id="contact">
         <h3>Or Chat Directly on WhatsApp</h3>
-        <div class="wa-large-phone"><i class="fab fa-whatsapp"></i> 9004270001</div>
+        <div class="wa-large-phone"><i class="fab fa-whatsapp"></i> +91 90042 70001</div>
         <a href="https://wa.me/919004270001" class="btn-wa-action">Chat on WhatsApp <i class="fas fa-arrow-right"></i></a>
         <span class="wa-hint">Click to Open WhatsApp</span>
       </div>
