@@ -4,33 +4,485 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SP Enterprises - Complete Security Solutions</title>
-  <link rel="stylesheet" href="style.css">
+  <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    /* Global Resets */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #f4f6f9;
+      color: #333;
+      line-height: 1.4;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .container {
+      width: 95%;
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    /* Top Header Bar */
+    .top-header {
+      background: #ffffff;
+      padding: 12px 0;
+      border-bottom: 1px solid #e1e4e8;
+    }
+
+    .header-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .brand-logo h1 {
+      font-size: 32px;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .sp-blue { color: #072ac8; }
+    .sp-navy { color: #1e293b; }
+    .tagline-red { color: #d90429; font-weight: 700; font-size: 13px; margin-top: 3px; }
+    .tagline-sub { color: #64748b; font-size: 11px; }
+
+    .header-contact {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .phone-box {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .wa-icon { font-size: 32px; color: #25d366; }
+    .call-label { font-size: 11px; color: #64748b; display: block; }
+    .phone-num { font-size: 20px; font-weight: 800; color: #0f172a; line-height: 1; }
+    .location-text { font-size: 12px; color: #475569; }
+
+    .btn-wa-header {
+      background: #25d366;
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 13px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 6px rgba(37, 211, 102, 0.2);
+    }
+
+    /* Navigation Bar */
+    .navbar {
+      background: #0f172a;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-flex {
+      display: flex;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    .nav-flex a {
+      color: #f8fafc;
+      padding: 14px 20px;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+
+    .nav-flex a.active, .nav-flex a:hover {
+      background: #1e293b;
+      color: #ffb703;
+    }
+
+    /* Hero Banner */
+    .hero {
+      background: linear-gradient(135deg, #0a192f 0%, #1e3a8a 100%);
+      color: #ffffff;
+      padding: 40px 0;
+      position: relative;
+    }
+
+    .hero-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .hero-left { flex: 1; min-width: 300px; }
+    .hero-subtitle { font-style: italic; color: #93c5fd; font-size: 18px; }
+    .hero-left h2 { font-size: 38px; font-weight: 900; margin: 8px 0; letter-spacing: 0.5px; }
+    .hero-left h3 { font-size: 18px; font-weight: 400; color: #e2e8f0; margin-bottom: 30px; }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      gap: 15px;
+    }
+
+    .feature-card {
+      text-align: center;
+    }
+
+    .icon-circle {
+      width: 50px;
+      height: 50px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 8px;
+      font-size: 20px;
+      color: #60a5fa;
+    }
+
+    .feature-card span {
+      font-size: 11px;
+      display: block;
+      line-height: 1.3;
+      color: #f1f5f9;
+    }
+
+    .hero-right {
+      position: relative;
+      flex: 1;
+      min-width: 280px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .badge-trust {
+      position: absolute;
+      top: -10px;
+      left: 10px;
+      background: #ffb703;
+      color: #000;
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 10px;
+      font-weight: 800;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      z-index: 2;
+    }
+
+    .badge-trust strong { font-size: 22px; line-height: 1; }
+
+    .hero-cam-img {
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    }
+
+    /* Content Sections */
+    .section {
+      padding: 35px 0;
+    }
+
+    .sec-heading {
+      font-size: 22px;
+      color: #0f172a;
+      margin-bottom: 20px;
+      font-weight: 800;
+    }
+
+    .orange-slash { color: #fb8500; margin-right: 5px; }
+    .sub-heading { font-size: 13px; color: #64748b; font-weight: 400; }
+
+    /* Services Grid */
+    .grid-services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 15px;
+    }
+
+    .service-card {
+      background: #ffffff;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+      text-align: center;
+    }
+
+    .service-card img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+    }
+
+    .card-footer {
+      background: #0f172a;
+      color: #fff;
+      padding: 10px;
+      min-height: 65px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .card-footer h4 { font-size: 13px; font-weight: 700; }
+    .card-footer p { font-size: 10px; color: #94a3b8; margin-top: 3px; }
+
+    /* Products Grid */
+    .grid-products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+      gap: 12px;
+    }
+
+    .prod-item {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      padding: 12px 8px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .prod-item img {
+      height: 70px;
+      margin: 0 auto 8px;
+      object-fit: contain;
+    }
+
+    .prod-item span {
+      font-size: 12px;
+      font-weight: 700;
+      color: #334155;
+      display: block;
+    }
+
+    /* Recent Work */
+    .grid-work {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px;
+    }
+
+    .grid-work img {
+      width: 100%;
+      height: 130px;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+
+    /* Why Us & Testimonial Layout */
+    .flex-why-testimonial {
+      display: flex;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+
+    .why-side { flex: 2; min-width: 300px; }
+    .testimonial-side { flex: 1; min-width: 280px; background: #fff; padding: 20px; border-radius: 8px; border: 1px solid #e2e8f0; }
+
+    .why-icons-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+      gap: 15px;
+      margin-top: 15px;
+      text-align: center;
+    }
+
+    .why-icon-item i {
+      font-size: 26px;
+      color: #0284c7;
+      margin-bottom: 8px;
+    }
+
+    .why-icon-item span {
+      font-size: 11px;
+      font-weight: 700;
+      display: block;
+      color: #334155;
+    }
+
+    .testimonial-card {
+      display: flex;
+      gap: 12px;
+      margin-top: 15px;
+      align-items: center;
+    }
+
+    .user-avatar {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .testimonial-text p { font-size: 12px; color: #475569; font-style: italic; }
+    .testimonial-text strong { font-size: 11px; color: #0f172a; display: block; margin-top: 5px; }
+
+    /* Enquiry Area */
+    .grid-enquiry {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .grid-enquiry { grid-template-columns: 1fr; }
+    }
+
+    .form-box {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      border: 1px solid #e2e8f0;
+    }
+
+    .quote-form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 15px;
+    }
+
+    @media (max-width: 500px) {
+      .quote-form-grid { grid-template-columns: 1fr; }
+    }
+
+    .input-field {
+      padding: 10px;
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+      font-size: 12px;
+      width: 100%;
+    }
+
+    .textarea-field {
+      grid-column: span 2;
+      height: 70px;
+    }
+
+    @media (max-width: 500px) {
+      .textarea-field { grid-column: span 1; }
+    }
+
+    .btn-submit-orange {
+      grid-column: span 2;
+      background: #fb8500;
+      color: #fff;
+      border: none;
+      padding: 12px;
+      font-weight: 700;
+      font-size: 14px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 500px) {
+      .btn-submit-orange { grid-column: span 1; }
+    }
+
+    .direct-wa-box {
+      background: #0284c7;
+      color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .wa-big-num { font-size: 22px; font-weight: 800; margin: 15px 0; }
+
+    .btn-wa-green {
+      background: #25d366;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    /* Footer */
+    .main-footer {
+      background: #0f172a;
+      color: #94a3b8;
+      font-size: 12px;
+      padding-top: 20px;
+    }
+
+    .footer-info-row {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 15px;
+      padding-bottom: 20px;
+    }
+
+    .footer-bottom {
+      background: #020617;
+      padding: 12px 0;
+      color: #64748b;
+    }
+
+    .footer-bottom-flex {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+  </style>
 </head>
 <body>
 
   <!-- Top Header -->
   <header class="top-header">
     <div class="container header-flex">
-      <div class="brand">
-        <div class="logo-text">
-          <span class="sp-blue">SP</span> <span class="sp-navy">ENTERPRISES</span>
-        </div>
+      <div class="brand-logo">
+        <h1><span class="sp-blue">SP</span> <span class="sp-navy">ENTERPRISES</span></h1>
         <p class="tagline-red">Complete Security Solutions</p>
         <p class="tagline-sub">CCTV | BioMetric | Intercom | Access Control</p>
       </div>
-      <div class="header-right">
+      <div class="header-contact">
         <div class="phone-box">
-          <i class="fab fa-whatsapp wa-green"></i>
+          <i class="fab fa-whatsapp wa-icon"></i>
           <div>
-            <span class="call-text">Call / WhatsApp</span>
+            <span class="call-label">Call / WhatsApp</span>
             <div class="phone-num">9004270001</div>
-            <span class="location-text"><i class="fas fa-map-marker-alt red-icon"></i> Navi Mumbai</span>
+            <span class="location-text"><i class="fas fa-map-marker-alt" style="color:#d90429;"></i> Navi Mumbai</span>
           </div>
         </div>
-        <a href="https://wa.me/919004270001" class="chat-wa-btn">
-          <i class="fab fa-whatsapp"></i> Chat on WhatsApp
-        </a>
+        <a href="https://wa.me/919004270001" class="btn-wa-header"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
       </div>
     </div>
   </header>
@@ -52,24 +504,24 @@
   <section class="hero" id="home">
     <div class="container hero-flex">
       <div class="hero-left">
-        <p class="hero-italic">Your Safety, Our Priority</p>
-        <h1>CCTV & SECURITY SOLUTIONS</h1>
-        <h2>Installation | Sales | Service | AMC</h2>
+        <p class="hero-subtitle">Your Safety, Our Priority</p>
+        <h2>CCTV & SECURITY SOLUTIONS</h2>
+        <h3>Installation | Sales | Service | AMC</h3>
         
-        <div class="hero-features">
-          <div class="feature-box">
+        <div class="features-grid">
+          <div class="feature-card">
             <div class="icon-circle"><i class="fas fa-video"></i></div>
             <span>HD Video Surveillance</span>
           </div>
-          <div class="feature-box">
+          <div class="feature-card">
             <div class="icon-circle"><i class="fas fa-mobile-alt"></i></div>
             <span>Remote Mobile Access</span>
           </div>
-          <div class="feature-box">
+          <div class="feature-card">
             <div class="icon-circle"><i class="fas fa-shield-alt"></i></div>
             <span>24/7 Security Monitoring</span>
           </div>
-          <div class="feature-box">
+          <div class="feature-card">
             <div class="icon-circle"><i class="fas fa-tools"></i></div>
             <span>Professional Installation</span>
           </div>
@@ -82,7 +534,7 @@
           <strong>100%</strong>
           <span>TRUSTED</span>
         </div>
-        <img src="https://via.placeholder.com/450x300/f4f6f8/000000?text=CCTV+Camera" alt="Hikvision Camera" class="hero-cam-img">
+        <img src="https://images.unsplash.com/photo-1557862921-37829c790f19?auto=format&fit=crop&w=500&q=80" alt="CCTV Security Camera" class="hero-cam-img">
       </div>
     </div>
   </section>
@@ -91,65 +543,33 @@
   <section class="section" id="services">
     <div class="container">
       <h2 class="sec-heading"><span class="orange-slash">//</span> Our Services <span class="sub-heading">/ Complete Security & Surveillance Solutions</span></h2>
-      
       <div class="grid-services">
         <div class="service-card">
-          <img src="https://via.placeholder.com/300x180" alt="CCTV Installation">
+          <img src="https://images.unsplash.com/photo-1557862921-37829c790f19?auto=format&fit=crop&w=300&q=80" alt="CCTV Installation">
           <div class="card-footer">
-            <h3>CCTV Installation</h3>
-            <p>Home | Office | Shop | Factory | Society</p>
+            <h4>CCTV Installation</h4>
+            <p>Home | Office | Shop | Society</p>
           </div>
         </div>
         <div class="service-card">
-          <img src="https://via.placeholder.com/300x180" alt="CCTV Repair">
+          <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=300&q=80" alt="CCTV Repair">
           <div class="card-footer">
-            <h3>CCTV Repair & Service</h3>
+            <h4>CCTV Repair & Service</h4>
             <p>Quick & Reliable Service</p>
           </div>
         </div>
         <div class="service-card">
-          <img src="https://via.placeholder.com/300x180" alt="DVR/NVR">
+          <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=300&q=80" alt="DVR NVR">
           <div class="card-footer">
-            <h3>DVR / NVR Setup</h3>
-            <p>Recording & Storage Solutions</p>
+            <h4>DVR / NVR Setup</h4>
+            <p>Recording & Storage</p>
           </div>
         </div>
         <div class="service-card">
-          <img src="https://via.placeholder.com/300x180" alt="Biometric">
+          <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=300&q=80" alt="Biometric">
           <div class="card-footer">
-            <h3>Biometric Attendance</h3>
+            <h4>Biometric Attendance</h4>
             <p>Time & Attendance Systems</p>
-          </div>
-        </div>
-        <div class="service-card">
-          <img src="https://via.placeholder.com/300x180" alt="Intercom">
-          <div class="card-footer">
-            <h3>Video Intercom</h3>
-            <p>Audio / Video Door Phones for Home & Office</p>
-          </div>
-        </div>
-        <div class="service-card">
-          <img src="https://via.placeholder.com/300x180" alt="Access Control">
-          <div class="card-footer">
-            <h3>Access Control</h3>
-            <p>Card / Fingerprint / Face Access Systems</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="grid-services-wide">
-        <div class="service-card horizontal">
-          <img src="https://via.placeholder.com/200x120" alt="AMC">
-          <div class="card-footer">
-            <h3>AMC / Maintenance</h3>
-            <p>Annual Maintenance Contracts</p>
-          </div>
-        </div>
-        <div class="service-card horizontal">
-          <img src="https://via.placeholder.com/200x120" alt="Mobile Monitoring">
-          <div class="card-footer">
-            <h3>Mobile Monitoring</h3>
-            <p>Live View on Your Phone (Anywhere)</p>
           </div>
         </div>
       </div>
@@ -157,92 +577,42 @@
   </section>
 
   <!-- Products We Provide -->
-  <section class="section grey-section" id="products">
+  <section class="section" id="products" style="background:#e2e8f0;">
     <div class="container">
       <h2 class="sec-heading"><span class="orange-slash">//</span> Products We Provide</h2>
       <div class="grid-products">
-        <div class="prod-item"><img src="https://via.placeholder.com/120x120" alt="Bullet Camera"><span>Bullet Camera</span></div>
-        <div class="prod-item"><img src="https://via.placeholder.com/120x120" alt="Dome Camera"><span>Dome Camera</span></div>
-        <div class="prod-item"><img src="https://via.placeholder.com/120x120" alt="IP Camera"><span>IP Camera</span></div>
-        <div class="prod-item"><img src="https://via.placeholder.com/120x120" alt="PTZ Camera"><span>PTZ Camera</span></div>
-        <div class="prod-item"><img src="https://via.placeholder.com/120x120" alt="DVR / NVR"><span>DVR / NVR</span></div>
-        <div class="prod-item"><img src="https://via.placeholder.com/120x120" alt="Biometric Device"><span>Biometric Device</span></div>
-        <div class="prod-item"><img src="https://via.placeholder.com/120x120" alt="Video Intercom"><span>Video Intercom</span></div>
-        <div class="prod-item"><img src="https://via.placeholder.com/120x120" alt="Access Control"><span>Access Control</span></div>
+        <div class="prod-item"><img src="https://images.unsplash.com/photo-1557862921-37829c790f19?auto=format&fit=crop&w=150&q=80" alt="Bullet Camera"><span>Bullet Camera</span></div>
+        <div class="prod-item"><img src="https://images.unsplash.com/photo-1557862921-37829c790f19?auto=format&fit=crop&w=150&q=80" alt="Dome Camera"><span>Dome Camera</span></div>
+        <div class="prod-item"><img src="https://images.unsplash.com/photo-1557862921-37829c790f19?auto=format&fit=crop&w=150&q=80" alt="IP Camera"><span>IP Camera</span></div>
+        <div class="prod-item"><img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=150&q=80" alt="DVR / NVR"><span>DVR / NVR</span></div>
       </div>
     </div>
   </section>
 
-  <!-- Our Recent Work -->
-  <section class="section" id="work">
-    <div class="container">
-      <h2 class="sec-heading"><span class="orange-slash">//</span> Our Recent Work</h2>
-      <div class="grid-work">
-        <img src="https://via.placeholder.com/200x150" alt="Work 1">
-        <img src="https://via.placeholder.com/200x150" alt="Work 2">
-        <img src="https://via.placeholder.com/200x150" alt="Work 3">
-        <img src="https://via.placeholder.com/200x150" alt="Work 4">
-        <img src="https://via.placeholder.com/200x150" alt="Work 5">
-        <img src="https://via.placeholder.com/200x150" alt="Work 6">
-      </div>
-    </div>
-  </section>
-
-  <!-- Why Choose Us & Customer Testimonial -->
-  <section class="section grey-section">
-    <div class="container flex-why-testimonial">
-      <div class="why-side">
-        <h2 class="sec-heading"><span class="orange-slash">//</span> Why Choose SP Enterprises?</h2>
-        <div class="icons-row">
-          <div class="icon-item"><i class="fas fa-shield-alt"></i><span>Quality Products</span></div>
-          <div class="icon-item"><i class="fas fa-user-cog"></i><span>Experienced Technicians</span></div>
-          <div class="icon-item"><i class="fas fa-handshake"></i><span>Fast & Reliable Service</span></div>
-          <div class="icon-item"><i class="fas fa-rupee-sign"></i><span>Best Prices</span></div>
-          <div class="icon-item"><i class="fas fa-thumbs-up"></i><span>Customer Satisfaction</span></div>
-          <div class="icon-item"><i class="fas fa-headset"></i><span>After-Sales Support</span></div>
-        </div>
-      </div>
-      <div class="testimonial-side">
-        <h3><i class="fas fa-star yellow-star"></i> Customer Says <i class="fas fa-star yellow-star"></i></h3>
-        <div class="testimonial-card">
-          <img src="https://via.placeholder.com/60" alt="Ravi Kumar" class="user-avatar">
-          <div class="testimonial-text">
-            <p>"Excellent service! Installed 8 cameras at my office. Very professional and neat work. Highly recommended."</p>
-            <strong>- Ravi Kumar, Navi Mumbai</strong>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Get Free Quote & Direct WhatsApp Form Area -->
+  <!-- Enquiry Section -->
   <section class="section" id="enquiry">
     <div class="container grid-enquiry">
-      <div class="form-side">
-        <h3 class="form-title">Get a Free Quote</h3>
-        <p class="form-sub">Fill the form & we will contact you shortly!</p>
+      <div class="form-box">
+        <h3 style="color:#0f172a; font-size:18px;">Get a Free Quote</h3>
+        <p style="color:#64748b; font-size:12px;">Fill the form & we will contact you shortly!</p>
         <form class="quote-form-grid">
-          <input type="text" placeholder="Your Name *" required class="input-full">
-          <input type="tel" placeholder="Mobile Number *" required class="input-full">
-          <input type="text" placeholder="Your Location (Navi Mumbai / Area) *" class="input-full">
-          <select class="input-full">
+          <input type="text" placeholder="Your Name *" required class="input-field">
+          <input type="tel" placeholder="Mobile Number *" required class="input-field">
+          <input type="text" placeholder="Your Location *" class="input-field">
+          <select class="input-field">
             <option>Select Requirement *</option>
             <option>CCTV Installation</option>
             <option>Biometric System</option>
-            <option>Intercom / Access Control</option>
           </select>
-          <textarea placeholder="Message / Other Details" class="input-full textarea-field"></textarea>
-          <button type="submit" class="btn-orange-submit"><i class="fas fa-paper-plane"></i> Submit Enquiry</button>
+          <textarea placeholder="Message / Details" class="input-field textarea-field"></textarea>
+          <button type="submit" class="btn-submit-orange"><i class="fas fa-paper-plane"></i> Submit Enquiry</button>
         </form>
       </div>
 
-      <div class="direct-wa-side">
+      <div class="direct-wa-box">
         <h3>Or Chat Directly on WhatsApp</h3>
-        <div class="wa-big-number">
-          <i class="fab fa-whatsapp"></i> 9004270001
-        </div>
-        <a href="https://wa.me/919004270001" class="btn-green-large">Chat on WhatsApp <i class="fas fa-arrow-right"></i></a>
-        <span class="click-note">Click to Open WhatsApp</span>
+        <div class="wa-big-num"><i class="fab fa-whatsapp"></i> 9004270001</div>
+        <a href="https://wa.me/919004270001" class="btn-wa-green">Chat on WhatsApp <i class="fas fa-arrow-right"></i></a>
       </div>
     </div>
   </section>
@@ -253,18 +623,11 @@
       <span><i class="fas fa-map-marker-alt"></i> Navi Mumbai, Maharashtra</span>
       <span><i class="fas fa-envelope"></i> spenterprises.cctv@gmail.com</span>
       <span><i class="fas fa-phone"></i> 9004270001</span>
-      <span class="socials">
-        Follow Us: 
-        <i class="fab fa-whatsapp"></i> 
-        <i class="fab fa-facebook"></i> 
-        <i class="fab fa-instagram"></i> 
-        <i class="fab fa-youtube"></i>
-      </span>
     </div>
-    <div class="footer-copyright">
-      <div class="container copyright-flex">
-        <p>© 2026 SP Enterprises | All Rights Reserved | CCTV | Biometric | Intercom | Access Control</p>
-        <p class="italic-motto">Your Security Partner for a Safer Tomorrow...</p>
+    <div class="footer-bottom">
+      <div class="container footer-bottom-flex">
+        <p>© 2026 SP Enterprises. All Rights Reserved.</p>
+        <p style="font-style:italic;">Your Security Partner for a Safer Tomorrow...</p>
       </div>
     </div>
   </footer>
