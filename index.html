@@ -63,7 +63,7 @@
       border: 2px dashed #000; box-shadow: 0 0 10px rgba(0,0,0,0.5); z-index: 2;
     }
     .badge-quality strong { font-size: 18px; line-height: 1; }
-    .hero-img { max-width: 100%; height: auto; border-radius: 6px; }
+    .hero-img { max-width: 220px; height: auto; margin: 0 auto; display: block; }
 
     /* Layout Sections */
     .section-block { padding: 20px; }
@@ -71,28 +71,33 @@
     .sec-header .slash { color: #ff5500; }
     .sec-header span { font-size: 12px; color: #666; font-weight: normal; }
 
+    /* Image Display Box */
+    .img-box {
+      width: 100%; height: 90px; background: #f0f4f8; display: flex; align-items: center;
+      justify-content: center; border-bottom: 1px solid #e2e8f0; color: #08284d; font-size: 32px;
+    }
+
     /* Services Grid */
     .grid-services { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; }
     .card-service { border: 1px solid #ccc; border-radius: 4px; overflow: hidden; text-align: center; background: #fff; }
-    .card-service img { width: 100%; height: 100px; object-fit: cover; }
     .card-service .card-desc { background: #08284d; color: #fff; padding: 8px 4px; min-height: 52px; }
     .card-service h4 { font-size: 12px; margin-bottom: 2px; }
     .card-service p { font-size: 9px; color: #b3d1ff; }
 
     .grid-services-wide { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 10px; }
     .card-wide { display: flex; border: 1px solid #ccc; border-radius: 4px; overflow: hidden; background: #fff; }
-    .card-wide img { width: 40%; height: 80px; object-fit: cover; }
+    .card-wide .img-box { width: 40%; height: 80px; border-bottom: none; border-right: 1px solid #e2e8f0; }
     .card-wide .card-desc { width: 60%; background: #08284d; color: #fff; padding: 12px; display: flex; flex-direction: column; justify-content: center; }
 
     /* Products Grid */
     .grid-products { display: grid; grid-template-columns: repeat(8, 1fr); gap: 8px; text-align: center; }
     .card-product { border: 1px solid #ddd; padding: 8px; border-radius: 4px; background: #fff; }
-    .card-product img { width: 100%; height: 65px; object-fit: contain; margin-bottom: 4px; }
+    .card-product i { font-size: 30px; color: #08284d; margin-bottom: 6px; display: block; }
     .card-product span { font-size: 10px; font-weight: bold; display: block; color: #333; }
 
     /* Recent Work */
     .grid-work { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; }
-    .grid-work img { width: 100%; height: 100px; object-fit: cover; border-radius: 4px; border: 1px solid #ccc; }
+    .work-box { background: #1e293b; color: #60a5fa; height: 90px; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 28px; border: 1px solid #ccc; }
 
     /* Split Section */
     .split-layout { display: flex; gap: 20px; align-items: flex-start; }
@@ -105,7 +110,7 @@
     .testimonial-box { flex: 1; background: #eef4fb; padding: 12px; border-radius: 6px; border: 1px solid #d0e1f9; }
     .testimonial-head { text-align: center; color: #08284d; font-size: 12px; margin-bottom: 10px; font-weight: bold; }
     .testimonial-content { display: flex; gap: 12px; align-items: center; }
-    .avatar-img { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; }
+    .avatar-icon { font-size: 40px; color: #08284d; }
     .testimonial-content p { font-size: 11px; color: #444; font-style: italic; }
     .testimonial-content strong { font-size: 10px; display: block; margin-top: 4px; color: #000; }
 
@@ -230,7 +235,8 @@
           <strong>100%</strong>
           <span>TRUSTED</span>
         </div>
-        <img src="https://m.media-amazon.com/images/I/51I3uA32u5L._SL1000_.jpg" alt="Hikvision Security Camera" class="hero-img">
+        <!-- High-res GitHub-hosted Security SVG Asset -->
+        <img src="https://raw.githubusercontent.com/twitter/twemoji/master/assets/svg/1f4fd.svg" alt="Security Camera Asset" class="hero-img">
       </div>
     </div>
   </section>
@@ -241,42 +247,42 @@
     
     <div class="grid-services">
       <div class="card-service">
-        <img src="https://m.media-amazon.com/images/I/61jT30-eC3L._SL1100_.jpg" alt="CCTV Installation">
+        <div class="img-box"><i class="fas fa-video"></i></div>
         <div class="card-desc">
           <h4>CCTV Installation</h4>
           <p>Home | Office | Shop | Society</p>
         </div>
       </div>
       <div class="card-service">
-        <img src="https://m.media-amazon.com/images/I/515P0886JvL._SL1000_.jpg" alt="CCTV Repair">
+        <div class="img-box"><i class="fas fa-wrench"></i></div>
         <div class="card-desc">
           <h4>CCTV Repair & Service</h4>
           <p>Quick & Reliable Service</p>
         </div>
       </div>
       <div class="card-service">
-        <img src="https://m.media-amazon.com/images/I/61L-N+b-lKL._SL1100_.jpg" alt="DVR NVR Setup">
+        <div class="img-box"><i class="fas fa-hdd"></i></div>
         <div class="card-desc">
           <h4>DVR / NVR Setup</h4>
           <p>Recording & Storage</p>
         </div>
       </div>
       <div class="card-service">
-        <img src="https://m.media-amazon.com/images/I/51wQWqD-M8L._SL1000_.jpg" alt="Biometric Attendance">
+        <div class="img-box"><i class="fas fa-fingerprint"></i></div>
         <div class="card-desc">
           <h4>Biometric Attendance</h4>
           <p>Time & Attendance Systems</p>
         </div>
       </div>
       <div class="card-service">
-        <img src="https://m.media-amazon.com/images/I/61VfL-qjTPL._SL1000_.jpg" alt="Video Intercom">
+        <div class="img-box"><i class="fas fa-door-closed"></i></div>
         <div class="card-desc">
           <h4>Video Intercom</h4>
           <p>Audio / Video Door Phones</p>
         </div>
       </div>
       <div class="card-service">
-        <img src="https://m.media-amazon.com/images/I/61XqA2R-yIL._SL1000_.jpg" alt="Access Control">
+        <div class="img-box"><i class="fas fa-id-card"></i></div>
         <div class="card-desc">
           <h4>Access Control</h4>
           <p>Card / Fingerprint Access</p>
@@ -286,14 +292,14 @@
 
     <div class="grid-services-wide">
       <div class="card-wide">
-        <img src="https://m.media-amazon.com/images/I/61L-N+b-lKL._SL1100_.jpg" alt="AMC Maintenance">
+        <div class="img-box"><i class="fas fa-file-contract"></i></div>
         <div class="card-desc">
           <h4>AMC / Maintenance</h4>
           <p>Annual Maintenance Contracts</p>
         </div>
       </div>
       <div class="card-wide">
-        <img src="https://m.media-amazon.com/images/I/51I3uA32u5L._SL1000_.jpg" alt="Mobile Monitoring">
+        <div class="img-box"><i class="fas fa-mobile-alt"></i></div>
         <div class="card-desc">
           <h4>Mobile Monitoring</h4>
           <p>Live View on Your Phone (Anywhere)</p>
@@ -306,14 +312,14 @@
   <section class="section-block" id="products">
     <h2 class="sec-header"><span class="slash">//</span> Products We Provide</h2>
     <div class="grid-products">
-      <div class="card-product"><img src="https://m.media-amazon.com/images/I/51I3uA32u5L._SL1000_.jpg" alt="Bullet Camera"><span>Bullet Camera</span></div>
-      <div class="card-product"><img src="https://m.media-amazon.com/images/I/61jT30-eC3L._SL1100_.jpg" alt="Dome Camera"><span>Dome Camera</span></div>
-      <div class="card-product"><img src="https://m.media-amazon.com/images/I/515P0886JvL._SL1000_.jpg" alt="IP Camera"><span>IP Camera</span></div>
-      <div class="card-product"><img src="https://m.media-amazon.com/images/I/515P0886JvL._SL1000_.jpg" alt="PTZ Camera"><span>PTZ Camera</span></div>
-      <div class="card-product"><img src="https://m.media-amazon.com/images/I/61L-N+b-lKL._SL1100_.jpg" alt="DVR NVR"><span>DVR / NVR</span></div>
-      <div class="card-product"><img src="https://m.media-amazon.com/images/I/51wQWqD-M8L._SL1000_.jpg" alt="Biometric Device"><span>Biometric Device</span></div>
-      <div class="card-product"><img src="https://m.media-amazon.com/images/I/61VfL-qjTPL._SL1000_.jpg" alt="Video Intercom"><span>Video Intercom</span></div>
-      <div class="card-product"><img src="https://m.media-amazon.com/images/I/61XqA2R-yIL._SL1000_.jpg" alt="Access Control"><span>Access Control</span></div>
+      <div class="card-product"><i class="fas fa-camera"></i><span>Bullet Camera</span></div>
+      <div class="card-product"><i class="fas fa-eye"></i><span>Dome Camera</span></div>
+      <div class="card-product"><i class="fas fa-network-wired"></i><span>IP Camera</span></div>
+      <div class="card-product"><i class="fas fa-globe"></i><span>PTZ Camera</span></div>
+      <div class="card-product"><i class="fas fa-server"></i><span>DVR / NVR</span></div>
+      <div class="card-product"><i class="fas fa-fingerprint"></i><span>Biometric Device</span></div>
+      <div class="card-product"><i class="fas fa-phone-alt"></i><span>Video Intercom</span></div>
+      <div class="card-product"><i class="fas fa-lock"></i><span>Access Control</span></div>
     </div>
   </section>
 
@@ -321,12 +327,12 @@
   <section class="section-block" id="work">
     <h2 class="sec-header"><span class="slash">//</span> Our Recent Work</h2>
     <div class="grid-work">
-      <img src="https://m.media-amazon.com/images/I/61jT30-eC3L._SL1100_.jpg" alt="Work 1">
-      <img src="https://m.media-amazon.com/images/I/61L-N+b-lKL._SL1100_.jpg" alt="Work 2">
-      <img src="https://m.media-amazon.com/images/I/51I3uA32u5L._SL1000_.jpg" alt="Work 3">
-      <img src="https://m.media-amazon.com/images/I/51wQWqD-M8L._SL1000_.jpg" alt="Work 4">
-      <img src="https://m.media-amazon.com/images/I/61VfL-qjTPL._SL1000_.jpg" alt="Work 5">
-      <img src="https://m.media-amazon.com/images/I/61XqA2R-yIL._SL1000_.jpg" alt="Work 6">
+      <div class="work-box"><i class="fas fa-camera-retro"></i></div>
+      <div class="work-box"><i class="fas fa-shield-alt"></i></div>
+      <div class="work-box"><i class="fas fa-video"></i></div>
+      <div class="work-box"><i class="fas fa-server"></i></div>
+      <div class="work-box"><i class="fas fa-fingerprint"></i></div>
+      <div class="work-box"><i class="fas fa-network-wired"></i></div>
     </div>
   </section>
 
@@ -348,7 +354,7 @@
       <div class="testimonial-box">
         <div class="testimonial-head">★ Customer Says ★</div>
         <div class="testimonial-content">
-          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Ravi Kumar" class="avatar-img">
+          <i class="fas fa-user-circle avatar-icon"></i>
           <div>
             <p>"Excellent service! Installed 8 cameras at my office. Very professional and neat work. Highly recommended."</p>
             <strong>– Ravi Kumar, Navi Mumbai</strong>
