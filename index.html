@@ -4,463 +4,109 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SP Enterprises - Complete Security Solutions</title>
-  <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
   <style>
-    /* Global Resets */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
+    body { background-color: #f4f6f9; color: #333; line-height: 1.4; }
+    img { max-width: 100%; height: auto; display: block; }
+    .container { width: 95%; max-width: 1180px; margin: 0 auto; }
 
-    body {
-      background-color: #f4f6f9;
-      color: #333;
-      line-height: 1.4;
-    }
-
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    .container {
-      width: 95%;
-      max-width: 1180px;
-      margin: 0 auto;
-    }
-
-    /* Top Header Bar */
-    .top-header {
-      background: #ffffff;
-      padding: 12px 0;
-      border-bottom: 1px solid #e1e4e8;
-    }
-
-    .header-flex {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 15px;
-    }
-
-    .brand-logo h1 {
-      font-size: 32px;
-      font-weight: 900;
-      line-height: 1;
-    }
-
+    /* Top Header */
+    .top-header { background: #ffffff; padding: 12px 0; border-bottom: 1px solid #e1e4e8; }
+    .header-flex { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; }
+    .brand-logo h1 { font-size: 32px; font-weight: 900; line-height: 1; }
     .sp-blue { color: #072ac8; }
     .sp-navy { color: #1e293b; }
     .tagline-red { color: #d90429; font-weight: 700; font-size: 13px; margin-top: 3px; }
     .tagline-sub { color: #64748b; font-size: 11px; }
-
-    .header-contact {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .phone-box {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
+    .header-contact { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .phone-box { display: flex; align-items: center; gap: 10px; }
     .wa-icon { font-size: 32px; color: #25d366; }
     .call-label { font-size: 11px; color: #64748b; display: block; }
     .phone-num { font-size: 20px; font-weight: 800; color: #0f172a; line-height: 1; }
     .location-text { font-size: 12px; color: #475569; }
-
     .btn-wa-header {
-      background: #25d366;
-      color: #fff;
-      padding: 10px 18px;
-      border-radius: 25px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 13px;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      box-shadow: 0 4px 6px rgba(37, 211, 102, 0.2);
+      background: #25d366; color: #fff; padding: 10px 18px; border-radius: 25px;
+      text-decoration: none; font-weight: 700; font-size: 13px; display: inline-flex;
+      align-items: center; gap: 8px; box-shadow: 0 4px 6px rgba(37, 211, 102, 0.2);
     }
 
-    /* Navigation Bar */
-    .navbar {
-      background: #0f172a;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
+    /* Navbar */
+    .navbar { background: #0f172a; position: sticky; top: 0; z-index: 100; }
+    .nav-flex { display: flex; overflow-x: auto; white-space: nowrap; }
+    .nav-flex a { color: #f8fafc; padding: 14px 20px; text-decoration: none; font-size: 13px; font-weight: 600; }
+    .nav-flex a.active, .nav-flex a:hover { background: #1e293b; color: #ffb703; }
 
-    .nav-flex {
-      display: flex;
-      overflow-x: auto;
-      white-space: nowrap;
-    }
-
-    .nav-flex a {
-      color: #f8fafc;
-      padding: 14px 20px;
-      text-decoration: none;
-      font-size: 13px;
-      font-weight: 600;
-      transition: background 0.2s;
-    }
-
-    .nav-flex a.active, .nav-flex a:hover {
-      background: #1e293b;
-      color: #ffb703;
-    }
-
-    /* Hero Banner */
-    .hero {
-      background: linear-gradient(135deg, #0a192f 0%, #1e3a8a 100%);
-      color: #ffffff;
-      padding: 40px 0;
-      position: relative;
-    }
-
-    .hero-flex {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 30px;
-      flex-wrap: wrap;
-    }
-
+    /* Hero Section */
+    .hero { background: linear-gradient(135deg, #0a192f 0%, #1e3a8a 100%); color: #ffffff; padding: 40px 0; }
+    .hero-flex { display: flex; justify-content: space-between; align-items: center; gap: 30px; flex-wrap: wrap; }
     .hero-left { flex: 1; min-width: 300px; }
     .hero-subtitle { font-style: italic; color: #93c5fd; font-size: 18px; }
-    .hero-left h2 { font-size: 38px; font-weight: 900; margin: 8px 0; letter-spacing: 0.5px; }
-    .hero-left h3 { font-size: 18px; font-weight: 400; color: #e2e8f0; margin-bottom: 30px; }
+    .hero-left h2 { font-size: 36px; font-weight: 900; margin: 8px 0; }
+    .hero-left h3 { font-size: 18px; font-weight: 400; color: #e2e8f0; margin-bottom: 25px; }
 
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-      gap: 15px;
-    }
-
-    .feature-card {
-      text-align: center;
-    }
-
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 15px; }
+    .feature-card { text-align: center; }
     .icon-circle {
-      width: 50px;
-      height: 50px;
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 8px;
-      font-size: 20px;
-      color: #60a5fa;
+      width: 50px; height: 50px; background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 8px; font-size: 20px; color: #60a5fa;
     }
+    .feature-card span { font-size: 11px; display: block; color: #f1f5f9; }
 
-    .feature-card span {
-      font-size: 11px;
-      display: block;
-      line-height: 1.3;
-      color: #f1f5f9;
-    }
-
-    .hero-right {
-      position: relative;
-      flex: 1;
-      min-width: 280px;
-      display: flex;
-      justify-content: center;
-    }
-
+    .hero-right { position: relative; flex: 1; min-width: 280px; display: flex; justify-content: center; }
     .badge-trust {
-      position: absolute;
-      top: -10px;
-      left: 10px;
-      background: #ffb703;
-      color: #000;
-      border-radius: 50%;
-      width: 100px;
-      height: 100px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      font-size: 10px;
-      font-weight: 800;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      z-index: 2;
+      position: absolute; top: -10px; left: 10px; background: #ffb703; color: #000;
+      border-radius: 50%; width: 90px; height: 90px; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; text-align: center; font-size: 10px;
+      font-weight: 800; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 2;
     }
+    .badge-trust strong { font-size: 20px; line-height: 1; }
+    .hero-cam-img { max-height: 260px; object-fit: contain; }
 
-    .badge-trust strong { font-size: 22px; line-height: 1; }
-
-    .hero-cam-img {
-      border-radius: 12px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-    }
-
-    /* Content Sections */
-    .section {
-      padding: 35px 0;
-    }
-
-    .sec-heading {
-      font-size: 22px;
-      color: #0f172a;
-      margin-bottom: 20px;
-      font-weight: 800;
-    }
-
+    /* Sections */
+    .section { padding: 35px 0; }
+    .sec-heading { font-size: 22px; color: #0f172a; margin-bottom: 20px; font-weight: 800; }
     .orange-slash { color: #fb8500; margin-right: 5px; }
     .sub-heading { font-size: 13px; color: #64748b; font-weight: 400; }
 
-    /* Services Grid */
-    .grid-services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-      gap: 15px;
-    }
-
-    .service-card {
-      background: #ffffff;
-      border-radius: 8px;
-      overflow: hidden;
-      border: 1px solid #e2e8f0;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.04);
-      text-align: center;
-    }
-
-    .service-card img {
-      width: 100%;
-      height: 120px;
-      object-fit: cover;
-    }
-
-    .card-footer {
-      background: #0f172a;
-      color: #fff;
-      padding: 10px;
-      min-height: 65px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
+    /* Grids */
+    .grid-services { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 15px; }
+    .service-card { background: #ffffff; border-radius: 8px; overflow: hidden; border: 1px solid #e2e8f0; text-align: center; }
+    .service-card .icon-box { background: #f1f5f9; padding: 20px; font-size: 40px; color: #072ac8; }
+    .card-footer { background: #0f172a; color: #fff; padding: 12px 8px; min-height: 65px; }
     .card-footer h4 { font-size: 13px; font-weight: 700; }
     .card-footer p { font-size: 10px; color: #94a3b8; margin-top: 3px; }
 
     /* Products Grid */
-    .grid-products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
-      gap: 12px;
-    }
+    .grid-products { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 12px; }
+    .prod-item { background: #fff; border: 1px solid #cbd5e1; padding: 15px 10px; border-radius: 8px; text-align: center; }
+    .prod-item i { font-size: 36px; color: #0284c7; margin-bottom: 10px; display: block; }
+    .prod-item span { font-size: 12px; font-weight: 700; color: #334155; display: block; }
 
-    .prod-item {
-      background: #fff;
-      border: 1px solid #e2e8f0;
-      padding: 12px 8px;
-      border-radius: 8px;
-      text-align: center;
-    }
+    /* Enquiry */
+    .grid-enquiry { display: grid; grid-template-columns: 2fr 1fr; gap: 20px; }
+    @media (max-width: 768px) { .grid-enquiry { grid-template-columns: 1fr; } }
+    .form-box { background: #fff; padding: 20px; border-radius: 8px; border: 1px solid #e2e8f0; }
+    .quote-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 15px; }
+    @media (max-width: 500px) { .quote-form-grid { grid-template-columns: 1fr; } }
+    .input-field { padding: 10px; border: 1px solid #cbd5e1; border-radius: 4px; font-size: 12px; width: 100%; }
+    .textarea-field { grid-column: span 2; height: 70px; }
+    @media (max-width: 500px) { .textarea-field { grid-column: span 1; } }
+    .btn-submit-orange { grid-column: span 2; background: #fb8500; color: #fff; border: none; padding: 12px; font-weight: 700; font-size: 14px; border-radius: 4px; cursor: pointer; }
+    @media (max-width: 500px) { .btn-submit-orange { grid-column: span 1; } }
 
-    .prod-item img {
-      height: 70px;
-      margin: 0 auto 8px;
-      object-fit: contain;
-    }
-
-    .prod-item span {
-      font-size: 12px;
-      font-weight: 700;
-      color: #334155;
-      display: block;
-    }
-
-    /* Recent Work */
-    .grid-work {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 12px;
-    }
-
-    .grid-work img {
-      width: 100%;
-      height: 130px;
-      object-fit: cover;
-      border-radius: 6px;
-    }
-
-    /* Why Us & Testimonial Layout */
-    .flex-why-testimonial {
-      display: flex;
-      gap: 25px;
-      flex-wrap: wrap;
-    }
-
-    .why-side { flex: 2; min-width: 300px; }
-    .testimonial-side { flex: 1; min-width: 280px; background: #fff; padding: 20px; border-radius: 8px; border: 1px solid #e2e8f0; }
-
-    .why-icons-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
-      gap: 15px;
-      margin-top: 15px;
-      text-align: center;
-    }
-
-    .why-icon-item i {
-      font-size: 26px;
-      color: #0284c7;
-      margin-bottom: 8px;
-    }
-
-    .why-icon-item span {
-      font-size: 11px;
-      font-weight: 700;
-      display: block;
-      color: #334155;
-    }
-
-    .testimonial-card {
-      display: flex;
-      gap: 12px;
-      margin-top: 15px;
-      align-items: center;
-    }
-
-    .user-avatar {
-      width: 55px;
-      height: 55px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-
-    .testimonial-text p { font-size: 12px; color: #475569; font-style: italic; }
-    .testimonial-text strong { font-size: 11px; color: #0f172a; display: block; margin-top: 5px; }
-
-    /* Enquiry Area */
-    .grid-enquiry {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 20px;
-    }
-
-    @media (max-width: 768px) {
-      .grid-enquiry { grid-template-columns: 1fr; }
-    }
-
-    .form-box {
-      background: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      border: 1px solid #e2e8f0;
-    }
-
-    .quote-form-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-top: 15px;
-    }
-
-    @media (max-width: 500px) {
-      .quote-form-grid { grid-template-columns: 1fr; }
-    }
-
-    .input-field {
-      padding: 10px;
-      border: 1px solid #cbd5e1;
-      border-radius: 4px;
-      font-size: 12px;
-      width: 100%;
-    }
-
-    .textarea-field {
-      grid-column: span 2;
-      height: 70px;
-    }
-
-    @media (max-width: 500px) {
-      .textarea-field { grid-column: span 1; }
-    }
-
-    .btn-submit-orange {
-      grid-column: span 2;
-      background: #fb8500;
-      color: #fff;
-      border: none;
-      padding: 12px;
-      font-weight: 700;
-      font-size: 14px;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    @media (max-width: 500px) {
-      .btn-submit-orange { grid-column: span 1; }
-    }
-
-    .direct-wa-box {
-      background: #0284c7;
-      color: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-
+    .direct-wa-box { background: #0284c7; color: #fff; padding: 20px; border-radius: 8px; text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; }
     .wa-big-num { font-size: 22px; font-weight: 800; margin: 15px 0; }
-
-    .btn-wa-green {
-      background: #25d366;
-      color: #fff;
-      padding: 10px 20px;
-      border-radius: 20px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 13px;
-    }
+    .btn-wa-green { background: #25d366; color: #fff; padding: 10px 20px; border-radius: 20px; text-decoration: none; font-weight: 700; font-size: 13px; }
 
     /* Footer */
-    .main-footer {
-      background: #0f172a;
-      color: #94a3b8;
-      font-size: 12px;
-      padding-top: 20px;
-    }
-
-    .footer-info-row {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 15px;
-      padding-bottom: 20px;
-    }
-
-    .footer-bottom {
-      background: #020617;
-      padding: 12px 0;
-      color: #64748b;
-    }
-
-    .footer-bottom-flex {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
+    .main-footer { background: #0f172a; color: #94a3b8; font-size: 12px; padding-top: 20px; }
+    .footer-info-row { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 15px; padding-bottom: 20px; }
+    .footer-bottom { background: #020617; padding: 12px 0; color: #64748b; }
+    .footer-bottom-flex { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
   </style>
 </head>
 <body>
@@ -534,7 +180,8 @@
           <strong>100%</strong>
           <span>TRUSTED</span>
         </div>
-        <img src="https://images.unsplash.com/photo-1557862921-37829c790f19?auto=format&fit=crop&w=500&q=80" alt="CCTV Security Camera" class="hero-cam-img">
+        <!-- High-quality CCTV Graphic Asset -->
+        <img src="https://cdn-icons-png.flaticon.com/512/2885/2885444.png" alt="CCTV Security Camera" class="hero-cam-img">
       </div>
     </div>
   </section>
@@ -545,31 +192,45 @@
       <h2 class="sec-heading"><span class="orange-slash">//</span> Our Services <span class="sub-heading">/ Complete Security & Surveillance Solutions</span></h2>
       <div class="grid-services">
         <div class="service-card">
-          <img src="https://images.unsplash.com/photo-1557862921-37829c790f19?auto=format&fit=crop&w=300&q=80" alt="CCTV Installation">
+          <div class="icon-box"><i class="fas fa-video"></i></div>
           <div class="card-footer">
             <h4>CCTV Installation</h4>
             <p>Home | Office | Shop | Society</p>
           </div>
         </div>
         <div class="service-card">
-          <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=300&q=80" alt="CCTV Repair">
+          <div class="icon-box"><i class="fas fa-wrench"></i></div>
           <div class="card-footer">
             <h4>CCTV Repair & Service</h4>
             <p>Quick & Reliable Service</p>
           </div>
         </div>
         <div class="service-card">
-          <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=300&q=80" alt="DVR NVR">
+          <div class="icon-box"><i class="fas fa-hdd"></i></div>
           <div class="card-footer">
             <h4>DVR / NVR Setup</h4>
             <p>Recording & Storage</p>
           </div>
         </div>
         <div class="service-card">
-          <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=300&q=80" alt="Biometric">
+          <div class="icon-box"><i class="fas fa-fingerprint"></i></div>
           <div class="card-footer">
             <h4>Biometric Attendance</h4>
             <p>Time & Attendance Systems</p>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="icon-box"><i class="fas fa-door-closed"></i></div>
+          <div class="card-footer">
+            <h4>Video Intercom</h4>
+            <p>Door Phones for Home/Office</p>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="icon-box"><i class="fas fa-id-card"></i></div>
+          <div class="card-footer">
+            <h4>Access Control</h4>
+            <p>Card & Biometric Access</p>
           </div>
         </div>
       </div>
@@ -581,10 +242,14 @@
     <div class="container">
       <h2 class="sec-heading"><span class="orange-slash">//</span> Products We Provide</h2>
       <div class="grid-products">
-        <div class="prod-item"><img src="https://images.unsplash.com/photo-1557862921-37829c790f19?auto=format&fit=crop&w=150&q=80" alt="Bullet Camera"><span>Bullet Camera</span></div>
-        <div class="prod-item"><img src="https://images.unsplash.com/photo-1557862921-37829c790f19?auto=format&fit=crop&w=150&q=80" alt="Dome Camera"><span>Dome Camera</span></div>
-        <div class="prod-item"><img src="https://images.unsplash.com/photo-1557862921-37829c790f19?auto=format&fit=crop&w=150&q=80" alt="IP Camera"><span>IP Camera</span></div>
-        <div class="prod-item"><img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=150&q=80" alt="DVR / NVR"><span>DVR / NVR</span></div>
+        <div class="prod-item"><i class="fas fa-camera"></i><span>Bullet Camera</span></div>
+        <div class="prod-item"><i class="fas fa-eye"></i><span>Dome Camera</span></div>
+        <div class="prod-item"><i class="fas fa-network-wired"></i><span>IP Camera</span></div>
+        <div class="prod-item"><i class="fas fa-globe"></i><span>PTZ Camera</span></div>
+        <div class="prod-item"><i class="fas fa-server"></i><span>DVR / NVR</span></div>
+        <div class="prod-item"><i class="fas fa-fingerprint"></i><span>Biometric Device</span></div>
+        <div class="prod-item"><i class="fas fa-phone-alt"></i><span>Video Intercom</span></div>
+        <div class="prod-item"><i class="fas fa-lock"></i><span>Access Control</span></div>
       </div>
     </div>
   </section>
@@ -603,6 +268,7 @@
             <option>Select Requirement *</option>
             <option>CCTV Installation</option>
             <option>Biometric System</option>
+            <option>Intercom / Access Control</option>
           </select>
           <textarea placeholder="Message / Details" class="input-field textarea-field"></textarea>
           <button type="submit" class="btn-submit-orange"><i class="fas fa-paper-plane"></i> Submit Enquiry</button>
