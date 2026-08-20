@@ -102,7 +102,7 @@
     .why-box i { font-size: 24px; color: #08284d; display: block; margin-bottom: 6px; }
     .why-box span { font-size: 10px; font-weight: bold; display: block; }
 
-    /* FIXED AUTO-SLIDING TESTIMONIAL STYLING */
+    /* AUTO-SLIDING TESTIMONIAL STYLING - UPDATED FOR BOLDER & LARGER TEXT */
     .testimonial-box { 
       flex: 1; 
       background: #eef4fb; 
@@ -111,12 +111,12 @@
       border: 1px solid #d0e1f9; 
       overflow: hidden !important; 
       width: 100%;
-      max-width: 380px; 
+      max-width: 400px; 
     }
     .testimonial-head { 
       text-align: center; 
       color: #08284d; 
-      font-size: 13px; 
+      font-size: 14px; 
       margin-bottom: 12px; 
       font-weight: bold; 
     }
@@ -138,15 +138,30 @@
       padding: 0 5px;
     }
     .avatar-img { 
-      width: 50px; 
-      height: 50px; 
+      width: 55px; 
+      height: 55px; 
       border-radius: 50%; 
       object-fit: cover; 
       border: 2px solid #08284d; 
       flex-shrink: 0;
     }
-    .testimonial-item p { font-size: 11px; color: #444; font-style: italic; }
-    .testimonial-item strong { font-size: 10px; display: block; margin-top: 4px; color: #000; }
+    
+    /* Bolder and Larger Review Text */
+    .testimonial-item p { 
+      font-size: 13px; 
+      color: #111; 
+      font-weight: bold; 
+      line-height: 1.35;
+    }
+    
+    /* Bolder and Larger Customer Name */
+    .testimonial-item strong { 
+      font-size: 12px; 
+      display: block; 
+      margin-top: 6px; 
+      color: #08284d; 
+      font-weight: 900;
+    }
 
     @keyframes slideReviews {
       0%, 13%       { transform: translateX(0%); }
@@ -265,7 +280,7 @@
             <div class="feat-icon"><i class="fas fa-shield-alt"></i></div>
             <span>24/7 Security Monitoring</span>
           </div>
-          <div class="feat-box">
+          . <div class="feat-box">
             <div class="feat-icon"><i class="fas fa-tools"></i></div>
             <span>Professional Installation</span>
           </div>
@@ -378,7 +393,7 @@
     </div>
   </section>
 
-  <!-- Why Choose Us & Customer Review Slider -->
+  <!-- Why Choose Us & Updated Customer Reviews -->
   <section class="section-block">
     <div class="split-layout">
       <div class="why-us">
@@ -393,56 +408,62 @@
         </div>
       </div>
       
-      <!-- Testimonial Box Container -->
+      <!-- Auto-Sliding Customer Reviews with Building & Office Images -->
       <div class="testimonial-box">
         <div class="testimonial-head">★ Customer Says ★</div>
         
         <div class="testimonial-slider-track">
+          <!-- Review 1: Puja Thombre -->
           <div class="testimonial-item">
-            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150" alt="Ravi" class="avatar-img">
+            <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=200" alt="Building Premises" class="avatar-img">
             <div>
-              <p>"Excellent service! Installed 8 CCTV cameras at my office in Vashi."</p>
-              <strong>– Ravi Kumar, Vashi</strong>
+              <p>"Excellent service! Installed 8 CCTV cameras at our society premises in Vashi."</p>
+              <strong>– Puja Thombre</strong>
             </div>
           </div>
 
+          <!-- Review 2: Poonam -->
           <div class="testimonial-item">
-            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150" alt="Amit" class="avatar-img">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=200" alt="Corporate Office" class="avatar-img">
             <div>
-              <p>"Got biometric attendance installed for my shop staff. Working seamlessly."</p>
-              <strong>– Amit Patil, Nerul</strong>
+              <p>"Got biometric attendance installed for our office staff. Works seamlessly!"</p>
+              <strong>– Poonam</strong>
             </div>
           </div>
 
+          <!-- Review 3: Sachin Chavan -->
           <div class="testimonial-item">
-            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150" alt="Sneha" class="avatar-img">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=200" alt="Commercial Building" class="avatar-img">
             <div>
-              <p>"Very reliable team. Solved our housing society video intercom issue."</p>
-              <strong>– Sneha Sharma, Kharghar</strong>
+              <p>"Very reliable team. Solved our video intercom issue within hours."</p>
+              <strong>– Sachin Chavan</strong>
             </div>
           </div>
 
+          <!-- Review 4: Sushant Bhosle -->
           <div class="testimonial-item">
-            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150" alt="Suresh" class="avatar-img">
+            <img src="https://images.unsplash.com/photo-1577495508048-b635879837f1?w=200" alt="Office Setup" class="avatar-img">
             <div>
-              <p>"Best price for IP Cameras in Navi Mumbai. Continuous support!"</p>
-              <strong>– Suresh Mehta, Belapur</strong>
+              <p>"Best price for IP Cameras in Navi Mumbai. Continuous support and clear night vision."</p>
+              <strong>– Sushant Bhosle</strong>
             </div>
           </div>
 
+          <!-- Review 5: Tanaji Algude -->
           <div class="testimonial-item">
-            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150" alt="Pooja" class="avatar-img">
+            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=200" alt="Residential Complex" class="avatar-img">
             <div>
-              <p>"Signed an AMC contract for our office building security. Prompt response."</p>
-              <strong>– Pooja Deshmukh, Panvel</strong>
+              <p>"Signed an AMC contract for our building security. Prompt response every time."</p>
+              <strong>– Tanaji Algude</strong>
             </div>
           </div>
 
+          <!-- Review 6: Rushikesh Shewale -->
           <div class="testimonial-item">
-            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=150" alt="Vikas" class="avatar-img">
+            <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?w=200" alt="Corporate Premises" class="avatar-img">
             <div>
-              <p>"Top-notch access control installation for our factory premise."</p>
-              <strong>– Vikas Shah, Rabale</strong>
+              <p>"Top-notch access control installation for our office premise. Smooth setup experience."</p>
+              <strong>– Rushikesh Shewale</strong>
             </div>
           </div>
         </div>
