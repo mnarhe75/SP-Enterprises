@@ -1,266 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SP Enterprises | CCTV & Security Solutions in Navi Mumbai</title>
-  <meta name="description" content="SP Enterprises provides CCTV installation, security systems, AMC, biometric attendance, video intercom and access control solutions across Navi Mumbai.">
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SP Enterprises | CCTV & Security Solutions in Navi Mumbai</title>
+<meta name="description" content="SP Enterprises - CCTV installation, sales, service, AMC, biometric attendance, video intercom and access control solutions in Navi Mumbai.">
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  <header class="header">
-    <div class="nav wrap">
-      <a href="#home" class="brand" aria-label="SP Enterprises Home">
-        <img src="logo.svg" alt="SP Enterprises Logo">
-      </a>
 
-      <button class="menuBtn" onclick="toggleMenu()" aria-label="Open navigation" aria-expanded="false">☰</button>
+<header class="siteHeader">
+  <div class="container nav">
+    <a class="brand" href="#home" aria-label="SP Enterprises">
+      <img src="logo.svg" alt="SP Enterprises">
+    </a>
+    <button class="menuBtn" aria-label="Open menu" aria-expanded="false" onclick="toggleMenu()">☰</button>
+    <nav id="mainNav">
+      <a href="#home">Home</a><a href="#about">About</a><a href="#services">Services</a>
+      <a href="#products">Products</a><a href="#work">Our Work</a><a href="#enquiry">Enquiry</a><a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
 
-      <nav id="navMenu">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#products">Products</a>
-        <a href="#work">Our Work</a>
-        <a href="#enquiry">Enquiry</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <!-- HERO -->
-    <section id="home" class="hero">
-      <div class="heroGlow heroGlowOne"></div>
-      <div class="heroGlow heroGlowTwo"></div>
-
-      <div class="wrap heroGrid">
-        <div class="heroContent">
-          <p class="eyebrow">YOUR SAFETY, OUR PRIORITY</p>
-
-          <h1>
-            CCTV &amp; SECURITY
-            <span>SOLUTIONS</span>
-          </h1>
-
-          <div class="heroServices">
-            <span>Installation</span>
-            <i>|</i>
-            <span>Sales</span>
-            <i>|</i>
-            <span>Service</span>
-            <i>|</i>
-            <span>AMC</span>
-          </div>
-
-          <p class="heroText">
-            Reliable security solutions for homes, shops, offices,
-            societies and commercial premises across Navi Mumbai.
-          </p>
-
-          <div class="heroButtons">
-            <a href="#enquiry" class="btn btnPrimary">Get Free Quote</a>
-            <a href="https://wa.me/919004270001" class="btn btnWhatsApp" target="_blank" rel="noopener">Chat on WhatsApp</a>
-          </div>
-
-          <div class="features">
-            <span>✓ Professional Installation</span>
-            <span>✓ Remote Mobile Viewing</span>
-            <span>✓ Fast Service</span>
-          </div>
+<main id="home">
+  <!-- HERO: text is separate from the old composite hero.jpg, so nothing overlaps. -->
+  <section class="hero">
+    <div class="heroBg"></div>
+    <div class="container heroGrid">
+      <div class="heroCopy">
+        <div class="eyebrow">YOUR SAFETY, OUR PRIORITY</div>
+        <h1>CCTV &amp; SECURITY <span>SOLUTIONS</span></h1>
+        <div class="heroMeta">Installation <b>|</b> Sales <b>|</b> Service <b>|</b> AMC</div>
+        <p>Reliable security solutions for homes, shops, offices, societies and commercial premises across Navi Mumbai.</p>
+        <div class="buttons">
+          <a class="btn primary" href="#enquiry">Get Free Quote</a>
+          <a class="btn whatsapp" href="https://wa.me/919004270001" target="_blank" rel="noopener">Chat on WhatsApp</a>
         </div>
-
-        <!-- Clean visual: the old hero.jpg is NOT used here because it contains
-             another complete website design/text. -->
-        <div class="heroVisual" aria-label="Security camera and surveillance products">
-          <div class="visualBadge">
-            <strong>24/7</strong>
-            <span>Security</span>
-          </div>
-          <div class="visualFrame">
-            <img src="products.jpg" alt="CCTV and security products">
-          </div>
-          <div class="visualCaption">
-            <span class="cameraDot"></span>
-            <div>
-              <strong>Professional Surveillance</strong>
-              <small>CCTV • IP Camera • DVR/NVR • Access Control</small>
-            </div>
-          </div>
+        <div class="heroPoints">
+          <span>✓ Professional Installation</span>
+          <span>✓ Remote Mobile Viewing</span>
+          <span>✓ Fast Service</span>
         </div>
       </div>
-    </section>
 
-    <!-- TRUST BAR -->
-    <section class="trustBar">
-      <div class="wrap trustGrid">
-        <div><strong>24/7</strong><span>Security</span></div>
-        <div><strong>AMC</strong><span>Maintenance</span></div>
-        <div><strong>HD</strong><span>Surveillance</span></div>
-        <div><strong>Mobile</strong><span>Remote Access</span></div>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about" class="section">
-      <div class="wrap twoColumn">
-        <div>
-          <p class="eyebrow">ABOUT SP ENTERPRISES</p>
-          <h2>Complete Security Solutions <span>Under One Roof</span></h2>
-          <p>
-            SP Enterprises provides CCTV installation, repair and maintenance
-            along with biometric attendance, video intercom and access-control solutions.
-          </p>
-          <p>
-            We focus on neat installation, reliable products and responsive
-            after-sales service in Navi Mumbai.
-          </p>
-          <a href="#enquiry" class="textLink">Request a Free Site Visit →</a>
+      <div class="heroMedia">
+        <!-- Full image is shown without cropping. This is a product/security visual,
+             not the old composite hero artwork. -->
+        <div class="imagePanel heroPanel">
+          <img src="products.jpg" alt="CCTV cameras, DVR, biometric, video intercom and access control products">
         </div>
-
-        <div class="aboutImage">
-          <img src="services.jpg" alt="Security system installation and services">
-        </div>
-      </div>
-    </section>
-
-    <!-- SERVICES -->
-    <section id="services" class="section darkSection">
-      <div class="wrap">
-        <p class="eyebrow">OUR SERVICES</p>
-        <h2>Security &amp; Surveillance <span>Services</span></h2>
-        <p class="sectionIntro">
-          Complete security solutions for residential, commercial and industrial requirements.
-        </p>
-
-        <div class="cards">
-          <article class="card"><div class="icon">◉</div><h3>CCTV Installation</h3><p>Professional CCTV installation for homes, offices, shops, factories and housing societies.</p></article>
-          <article class="card"><div class="icon">▣</div><h3>CCTV Repair &amp; Service</h3><p>Troubleshooting, camera replacement, DVR/NVR service and complete system maintenance.</p></article>
-          <article class="card"><div class="icon">◈</div><h3>AMC Maintenance</h3><p>Regular preventive maintenance to keep your surveillance system working reliably.</p></article>
-          <article class="card"><div class="icon">⌁</div><h3>Remote Mobile Viewing</h3><p>Monitor your premises remotely using your smartphone from anywhere.</p></article>
-          <article class="card"><div class="icon">✓</div><h3>Biometric Attendance</h3><p>Attendance and access solutions for offices, businesses and organizations.</p></article>
-          <article class="card"><div class="icon">▤</div><h3>Video Intercom</h3><p>Convenient video communication and visitor management solutions.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <!-- PRODUCTS -->
-    <section id="products" class="section">
-      <div class="wrap">
-        <p class="eyebrow">PRODUCTS WE PROVIDE</p>
-        <h2>Quality Security <span>Products</span></h2>
-
-        <div class="productGrid">
-          <div class="productImage">
-            <img src="products.jpg" alt="Security products including CCTV cameras and access control">
-          </div>
-
-          <div class="productList">
-            <div><strong>01</strong><h3>HD CCTV Cameras</h3><p>Reliable cameras for indoor and outdoor surveillance.</p></div>
-            <div><strong>02</strong><h3>DVR &amp; NVR Systems</h3><p>Secure recording and monitoring solutions.</p></div>
-            <div><strong>03</strong><h3>IP Cameras</h3><p>Modern network-based surveillance systems.</p></div>
-            <div><strong>04</strong><h3>Biometric &amp; Access Control</h3><p>Smart solutions for attendance and controlled entry.</p></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- OUR WORK -->
-    <section id="work" class="section darkSection">
-      <div class="wrap">
-        <p class="eyebrow">OUR WORK</p>
-        <h2>Installation &amp; Project <span>Gallery</span></h2>
-
-        <div class="gallery">
-          <div class="galleryItem">
-            <img src="work.jpg" alt="CCTV installation project">
-            <div><h3>CCTV Installation</h3><p>Professional surveillance installation.</p></div>
-          </div>
-          <div class="galleryItem">
-            <img src="hero.jpg" alt="Security project">
-            <div><h3>Security Solutions</h3><p>Complete security system deployment.</p></div>
-          </div>
-          <div class="galleryItem">
-            <img src="services.jpg" alt="Security service project">
-            <div><h3>Service &amp; AMC</h3><p>Reliable maintenance and support.</p></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- WHY US -->
-    <section class="section">
-      <div class="wrap">
-        <p class="eyebrow">WHY CHOOSE US</p>
-        <h2>Why SP <span>Enterprises?</span></h2>
-
-        <div class="whyGrid">
-          <div class="whyBox"><div class="whyIcon">🛡️</div><h3>Reliable Security</h3><p>Quality surveillance solutions designed around your security requirements.</p></div>
-          <div class="whyBox"><div class="whyIcon">⚙️</div><h3>Professional Installation</h3><p>Clean, organized and professional installation by experienced technicians.</p></div>
-          <div class="whyBox"><div class="whyIcon">📱</div><h3>Remote Monitoring</h3><p>Keep an eye on your property through convenient mobile viewing.</p></div>
-          <div class="whyBox"><div class="whyIcon">☎️</div><h3>After-Sales Support</h3><p>Responsive service and maintenance after installation.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ENQUIRY -->
-    <section id="enquiry" class="enquiry">
-      <div class="wrap enquiryBox">
-        <div>
-          <p class="eyebrow">FREE QUOTATION</p>
-          <h2>Tell Us What <span>You Need</span></h2>
-          <p>Contact SP Enterprises for CCTV installation, repair, AMC or complete security solutions.</p>
-        </div>
-        <div class="enquiryButtons">
-          <a href="tel:+919004270001" class="btn btnPrimary">Call Now</a>
-          <a href="https://wa.me/919004270001" class="btn btnWhatsApp" target="_blank" rel="noopener">WhatsApp Us</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer id="contact">
-    <div class="wrap footerGrid">
-      <div>
-        <img src="logo.svg" alt="SP Enterprises" class="footerLogo">
-        <p>Complete security solutions for homes, offices, shops and commercial premises.</p>
-      </div>
-
-      <div>
-        <h3>Quick Links</h3>
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#products">Products</a>
-        <a href="#work">Our Work</a>
-      </div>
-
-      <div>
-        <h3>Contact</h3>
-        <p>Navi Mumbai, Maharashtra</p>
-        <p><a href="tel:+919004270001">+91 9004270001</a></p>
-        <p><a href="https://wa.me/919004270001" target="_blank" rel="noopener">WhatsApp</a></p>
+        <div class="heroTag"><strong>24/7</strong><small>Security</small></div>
       </div>
     </div>
+  </section>
 
-    <div class="copyright">© 2026 SP Enterprises. All Rights Reserved.</div>
-  </footer>
+  <section class="quickBar">
+    <div class="container quickGrid">
+      <div><strong>24/7</strong><span>Security</span></div>
+      <div><strong>AMC</strong><span>Maintenance</span></div>
+      <div><strong>HD</strong><span>Surveillance</span></div>
+      <div><strong>Mobile</strong><span>Remote Access</span></div>
+    </div>
+  </section>
 
-  <script>
-    function toggleMenu() {
-      const menu = document.getElementById("navMenu");
-      const button = document.querySelector(".menuBtn");
-      menu.classList.toggle("active");
-      button.setAttribute("aria-expanded", menu.classList.contains("active"));
-    }
+  <section id="about" class="section">
+    <div class="container split">
+      <div>
+        <div class="eyebrow">ABOUT SP ENTERPRISES</div>
+        <h2>Complete Security Solutions <span>Under One Roof</span></h2>
+        <p>SP Enterprises provides CCTV installation, repair and maintenance along with biometric attendance, video intercom and access-control solutions.</p>
+        <p>We focus on neat installation, reliable products and responsive after-sales service in Navi Mumbai.</p>
+        <a class="textLink" href="#enquiry">Request a Free Site Visit →</a>
+      </div>
+      <div class="fullImage">
+        <img src="services.jpg" alt="SP Enterprises CCTV and security services">
+      </div>
+    </div>
+  </section>
 
-    document.querySelectorAll("#navMenu a").forEach(function(link) {
-      link.addEventListener("click", function() {
-        document.getElementById("navMenu").classList.remove("active");
-        document.querySelector(".menuBtn").setAttribute("aria-expanded", "false");
-      });
-    });
-  </script>
+  <section id="services" class="section dark">
+    <div class="container">
+      <div class="eyebrow">OUR SERVICES</div>
+      <h2>Security &amp; Surveillance <span>Services</span></h2>
+      <p class="lead">Complete security solutions for residential, commercial and industrial requirements.</p>
+      <div class="cards">
+        <article><div class="cardIcon">◉</div><h3>CCTV Installation</h3><p>Professional CCTV installation for homes, offices, shops, factories and housing societies.</p></article>
+        <article><div class="cardIcon">▣</div><h3>CCTV Repair &amp; Service</h3><p>Troubleshooting, camera replacement, DVR/NVR service and complete system maintenance.</p></article>
+        <article><div class="cardIcon">◈</div><h3>AMC Maintenance</h3><p>Regular preventive maintenance to keep your surveillance system working reliably.</p></article>
+        <article><div class="cardIcon">⌁</div><h3>Remote Mobile Viewing</h3><p>Monitor your premises remotely using your smartphone from anywhere.</p></article>
+        <article><div class="cardIcon">✓</div><h3>Biometric Attendance</h3><p>Attendance and access solutions for offices, businesses and organizations.</p></article>
+        <article><div class="cardIcon">▤</div><h3>Video Intercom</h3><p>Convenient video communication and visitor management solutions.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="products" class="section">
+    <div class="container">
+      <div class="eyebrow">PRODUCTS WE PROVIDE</div>
+      <h2>Quality Security <span>Products</span></h2>
+      <div class="productLayout">
+        <div class="fullImage productFull">
+          <img src="products.jpg" alt="SP Enterprises security products">
+        </div>
+        <div class="productList">
+          <div><b>01</b><h3>HD CCTV Cameras</h3><p>Indoor and outdoor surveillance cameras.</p></div>
+          <div><b>02</b><h3>DVR &amp; NVR Systems</h3><p>Secure recording and monitoring solutions.</p></div>
+          <div><b>03</b><h3>IP Cameras</h3><p>Modern network-based surveillance systems.</p></div>
+          <div><b>04</b><h3>Biometric &amp; Access Control</h3><p>Smart attendance and controlled-entry solutions.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work" class="section dark">
+    <div class="container">
+      <div class="eyebrow">OUR WORK</div>
+      <h2>Installation &amp; Project <span>Gallery</span></h2>
+      <p class="lead">A selection of our security installation, service and product work.</p>
+      <div class="gallery">
+        <figure><img src="work.jpg" alt="CCTV installation and project work"><figcaption><strong>CCTV Installation</strong><span>Professional surveillance installation</span></figcaption></figure>
+        <figure><img src="services.jpg" alt="Security service work"><figcaption><strong>Service &amp; AMC</strong><span>Reliable maintenance and support</span></figcaption></figure>
+        <figure><img src="products.jpg" alt="Security products supplied"><figcaption><strong>Security Products</strong><span>Cameras, DVR/NVR and access control</span></figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="eyebrow">WHY CHOOSE US</div>
+      <h2>Why SP <span>Enterprises?</span></h2>
+      <div class="why">
+        <div><strong>🛡️</strong><h3>Reliable Security</h3><p>Quality surveillance solutions designed around your requirements.</p></div>
+        <div><strong>⚙️</strong><h3>Professional Installation</h3><p>Clean, organized installation by experienced technicians.</p></div>
+        <div><strong>📱</strong><h3>Remote Monitoring</h3><p>Convenient mobile viewing from anywhere.</p></div>
+        <div><strong>☎️</strong><h3>After-Sales Support</h3><p>Responsive service and maintenance after installation.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="enquiry" class="cta">
+    <div class="container ctaInner">
+      <div><div class="eyebrow">FREE QUOTATION</div><h2>Tell Us What <span>You Need</span></h2><p>Contact SP Enterprises for CCTV installation, repair, AMC or complete security solutions.</p></div>
+      <div class="buttons"><a class="btn primary" href="tel:+919004270001">Call Now</a><a class="btn whatsapp" href="https://wa.me/919004270001" target="_blank" rel="noopener">WhatsApp Us</a></div>
+    </div>
+  </section>
+</main>
+
+<footer id="contact">
+  <div class="container footer">
+    <div><img class="footerLogo" src="logo.svg" alt="SP Enterprises"><p>Complete security solutions for homes, offices, shops and commercial premises.</p></div>
+    <div><h3>Quick Links</h3><a href="#home">Home</a><a href="#about">About</a><a href="#services">Services</a><a href="#products">Products</a><a href="#work">Our Work</a></div>
+    <div><h3>Contact</h3><p>Navi Mumbai, Maharashtra</p><a href="tel:+919004270001">+91 9004270001</a><a href="https://wa.me/919004270001">WhatsApp</a></div>
+  </div>
+  <div class="copyright">© 2026 SP Enterprises. All Rights Reserved.</div>
+</footer>
+
+<script>
+function toggleMenu(){
+  const n=document.getElementById('mainNav'), b=document.querySelector('.menuBtn');
+  n.classList.toggle('open');
+  b.setAttribute('aria-expanded', n.classList.contains('open'));
+}
+document.querySelectorAll('#mainNav a').forEach(a=>a.addEventListener('click',()=>document.getElementById('mainNav').classList.remove('open')));
+</script>
 </body>
 </html>
