@@ -42,13 +42,38 @@
       box-shadow: 0 2px 5px rgba(37,211,102,0.3);
     }
 
-    /* Navbar */
+    /* Navbar & Dropdown CSS */
     .navbar { background: #08284d; display: flex; justify-content: center; }
-    .nav-menu { display: flex; list-style: none; overflow-x: auto; white-space: nowrap; }
+    .nav-menu { display: flex; list-style: none; overflow: visible; }
+    .nav-menu > li { position: relative; }
     .nav-menu a { color: #fff; padding: 12px 20px; text-decoration: none; font-weight: bold; font-size: 13px; display: block; }
     .nav-menu a.active, .nav-menu a:hover { background: #001833; color: #ffaa00; }
 
-    /* Offset jump position for sticky header */
+    /* Dropdown Styling */
+    .dropdown { position: relative; }
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #08284d;
+      min-width: 220px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+      list-style: none;
+      z-index: 1005;
+      border-top: 2px solid #ffaa00;
+    }
+    .dropdown:hover .dropdown-menu { display: block; }
+    .dropdown-menu li a {
+      padding: 10px 15px;
+      font-size: 12px;
+      color: #fff;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      white-space: nowrap;
+    }
+    .dropdown-menu li a:hover { background: #001833; color: #ffaa00; }
+
+    /* Section Jump Offset */
     section { scroll-margin-top: 135px; }
 
     /* Hero */
@@ -97,18 +122,44 @@
     .sec-header .slash { color: #ff5500; }
     .sec-header span { font-size: 12px; color: #666; font-weight: normal; }
 
-    /* Services Grid */
-    .grid-services { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; }
-    .card-service { border: 1px solid #ccc; border-radius: 4px; overflow: hidden; text-align: center; background: #fff; }
-    .card-service img { width: 100%; height: 95px; object-fit: contain; padding: 5px; background: #fcfcfc; display: block; }
-    .card-service .card-desc { background: #08284d; color: #fff; padding: 8px 4px; min-height: 52px; }
-    .card-service h4 { font-size: 12px; margin-bottom: 2px; }
-    .card-service p { font-size: 9px; color: #b3d1ff; }
+    /* Dynamic Service Viewer Box */
+    .service-viewer {
+      display: flex;
+      background: #f0f4f9;
+      border: 2px solid #08284d;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      align-items: center;
+    }
+    .service-viewer-img {
+      width: 45%;
+      height: 250px;
+      object-fit: contain;
+      background: #fff;
+      padding: 15px;
+      border-right: 1px solid #d0e1f9;
+    }
+    .service-viewer-info {
+      width: 55%;
+      padding: 20px;
+    }
+    .service-viewer-info h3 { font-size: 22px; color: #08284d; margin-bottom: 10px; }
+    .service-viewer-info p { font-size: 13px; color: #444; line-height: 1.5; margin-bottom: 15px; }
+    .btn-service-enquire {
+      background: #ff5500; color: #fff; text-decoration: none; padding: 8px 16px;
+      font-weight: bold; border-radius: 4px; display: inline-block; font-size: 12px;
+    }
 
-    .grid-services-wide { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 10px; }
-    .card-wide { display: flex; border: 1px solid #ccc; border-radius: 4px; overflow: hidden; background: #fff; }
-    .card-wide img { width: 40%; height: 85px; object-fit: cover; }
-    .card-wide .card-desc { width: 60%; background: #08284d; color: #fff; padding: 12px; display: flex; flex-direction: column; justify-content: center; }
+    /* Services Grid */
+    .grid-services { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
+    .card-service { border: 1px solid #ccc; border-radius: 6px; overflow: hidden; text-align: center; background: #fff; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; }
+    .card-service:hover { transform: translateY(-3px); box-shadow: 0 6px 12px rgba(0,0,0,0.15); }
+    .card-service img { width: 100%; height: 130px; object-fit: contain; padding: 10px; background: #fcfcfc; display: block; }
+    .card-service .card-desc { background: #08284d; color: #fff; padding: 10px 6px; min-height: 60px; }
+    .card-service h4 { font-size: 13px; margin-bottom: 3px; }
+    .card-service p { font-size: 10px; color: #b3d1ff; }
 
     /* Products Grid */
     .grid-products { display: grid; grid-template-columns: repeat(8, 1fr); gap: 8px; text-align: center; }
@@ -230,9 +281,13 @@
 
     @media (max-width: 900px) {
       section { scroll-margin-top: 200px; }
-      .grid-services, .grid-work { grid-template-columns: repeat(3, 1fr); }
+      .grid-services { grid-template-columns: repeat(2, 1fr); }
+      .grid-work { grid-template-columns: repeat(3, 1fr); }
       .grid-products { grid-template-columns: repeat(4, 1fr); }
       .about-grid { grid-template-columns: 1fr; }
+      .service-viewer { flex-direction: column; }
+      .service-viewer-img, .service-viewer-info { width: 100%; }
+      .service-viewer-img { height: 180px; border-right: none; border-bottom: 1px solid #d0e1f9; }
     }
     @media (max-width: 768px) {
       section { scroll-margin-top: 240px; }
@@ -273,12 +328,24 @@
       </div>
     </header>
 
-    <!-- Navbar -->
+    <!-- Navbar with Dropdown -->
     <nav class="navbar">
       <ul class="nav-menu">
         <li><a href="#home" class="active"><i class="fas fa-home"></i> Home</a></li>
         <li><a href="#about">About Us</a></li>
-        <li><a href="#services">Our Services <i class="fas fa-caret-down"></i></a></li>
+        <li class="dropdown">
+          <a href="#services">Our Services <i class="fas fa-caret-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="#services" onclick="showService('cctv-install')">CCTV Installation</a></li>
+            <li><a href="#services" onclick="showService('cctv-repair')">CCTV Repair & Service</a></li>
+            <li><a href="#services" onclick="showService('dvr-setup')">DVR / NVR Setup</a></li>
+            <li><a href="#services" onclick="showService('biometric')">Biometric Attendance</a></li>
+            <li><a href="#services" onclick="showService('intercom')">Video Intercom System</a></li>
+            <li><a href="#services" onclick="showService('access')">Access Control System</a></li>
+            <li><a href="#services" onclick="showService('amc')">AMC Maintenance Contract</a></li>
+            <li><a href="#services" onclick="showService('mobile')">Mobile Live Monitoring</a></li>
+          </ul>
+        </li>
         <li><a href="#products">Products</a></li>
         <li><a href="#work">Our Work</a></li>
         <li><a href="#enquiry">Enquiry</a></li>
@@ -361,12 +428,22 @@
     </div>
   </section>
 
-  <!-- Services -->
+  <!-- Services Section -->
   <section class="section-block" id="services">
     <h2 class="sec-header"><span class="slash">//</span> Our Services <span>/ Complete Security & Surveillance Solutions</span></h2>
     
+    <!-- Dynamic Display Area triggered when clicking dropdown items -->
+    <div class="service-viewer" id="serviceViewer">
+      <img id="viewerImg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Security_camera_02.jpg/640px-Security_camera_02.jpg" alt="CCTV Installation" class="service-viewer-img">
+      <div class="service-viewer-info">
+        <h3 id="viewerTitle">CCTV Installation</h3>
+        <p id="viewerDesc">Professional installation of high-definition Dome, Bullet, and IP CCTV cameras for homes, offices, housing societies, and retail stores across Maharashtra.</p>
+        <a href="#enquiry" class="btn-service-enquire"><i class="fas fa-paper-plane"></i> Get Free Quote for this Service</a>
+      </div>
+    </div>
+
     <div class="grid-services">
-      <div class="card-service">
+      <div class="card-service" onclick="showService('cctv-install')">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Security_camera_02.jpg/640px-Security_camera_02.jpg" alt="CCTV Installation">
         <div class="card-desc">
           <h4>CCTV Installation</h4>
@@ -374,7 +451,7 @@
         </div>
       </div>
 
-      <div class="card-service">
+      <div class="card-service" onclick="showService('cctv-repair')">
         <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=400&auto=format&fit=crop" alt="CCTV Repair">
         <div class="card-desc">
           <h4>CCTV Repair & Service</h4>
@@ -382,15 +459,15 @@
         </div>
       </div>
 
-      <div class="card-service">
+      <div class="card-service" onclick="showService('dvr-setup')">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/DVR_Back_Panel.jpg/640px-DVR_Back_Panel.jpg" alt="DVR NVR Setup">
         <div class="card-desc">
           <h4>DVR / NVR Setup</h4>
-          <p>Recording & Storage</p>
+          <p>Recording & Storage Setup</p>
         </div>
       </div>
 
-      <div class="card-service">
+      <div class="card-service" onclick="showService('biometric')">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Fingerprint_scanner_in_use.jpg/640px-Fingerprint_scanner_in_use.jpg" alt="Biometric Attendance">
         <div class="card-desc">
           <h4>Biometric Attendance</h4>
@@ -398,7 +475,7 @@
         </div>
       </div>
 
-      <div class="card-service">
+      <div class="card-service" onclick="showService('intercom')">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Intercom_panel.jpg/640px-Intercom_panel.jpg" alt="Video Intercom">
         <div class="card-desc">
           <h4>Video Intercom</h4>
@@ -406,29 +483,27 @@
         </div>
       </div>
 
-      <div class="card-service">
+      <div class="card-service" onclick="showService('access')">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/RFID_Access_Control.jpg/640px-RFID_Access_Control.jpg" alt="Access Control">
         <div class="card-desc">
           <h4>Access Control</h4>
-          <p>Card / Fingerprint Access</p>
+          <p>Card & Fingerprint Access</p>
         </div>
       </div>
-    </div>
 
-    <div class="grid-services-wide">
-      <div class="card-wide">
-        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=500&auto=format&fit=crop" alt="AMC Maintenance">
+      <div class="card-service" onclick="showService('amc')">
+        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=500&auto=format&fit=crop" alt="AMC Contract">
         <div class="card-desc">
-          <h4>AMC / Maintenance</h4>
-          <p>Annual Maintenance Contracts Across Maharashtra</p>
+          <h4>AMC Contract</h4>
+          <p>Annual Maintenance Plans</p>
         </div>
       </div>
 
-      <div class="card-wide">
+      <div class="card-service" onclick="showService('mobile')">
         <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=500&auto=format&fit=crop" alt="Mobile Monitoring">
         <div class="card-desc">
           <h4>Mobile Monitoring</h4>
-          <p>Live View on Your Phone (Anywhere)</p>
+          <p>Live Phone View Setup</p>
         </div>
       </div>
     </div>
@@ -604,6 +679,62 @@
   </footer>
 
 </div>
+
+<!-- JavaScript to handle showing service image on dropdown selection -->
+<script>
+  const serviceData = {
+    'cctv-install': {
+      title: 'CCTV Installation Services',
+      img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Security_camera_02.jpg/640px-Security_camera_02.jpg',
+      desc: 'Complete installation solutions for HD Bullet, Dome, and Wireless IP Cameras. Ideal for apartments, retail stores, offices, and industrial hubs across Maharashtra.'
+    },
+    'cctv-repair': {
+      title: 'CCTV Repair & Maintenance',
+      img: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=400&auto=format&fit=crop',
+      desc: 'Fast troubleshooting and repair services for no video signal, cable damage, power supply failures, and camera lens replacement.'
+    },
+    'dvr-setup': {
+      title: 'DVR / NVR & Storage Setup',
+      img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/DVR_Back_Panel.jpg/640px-DVR_Back_Panel.jpg',
+      desc: 'Expert configuration of Digital Video Recorders (DVR) and Network Video Recorders (NVR) with high-capacity hard drives for seamless continuous video recording.'
+    },
+    'biometric': {
+      title: 'Biometric Attendance Systems',
+      img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Fingerprint_scanner_in_use.jpg/640px-Fingerprint_scanner_in_use.jpg',
+      desc: 'Fingerprint, facial recognition, and RFID-based time-attendance devices for managing employee check-ins accurately.'
+    },
+    'intercom': {
+      title: 'Audio & Video Intercom Systems',
+      img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Intercom_panel.jpg/640px-Intercom_panel.jpg',
+      desc: 'Video door phones and multi-apartment intercom systems for safe visitor verification before entrance.'
+    },
+    'access': {
+      title: 'Electronic Access Control Systems',
+      img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/RFID_Access_Control.jpg/640px-RFID_Access_Control.jpg',
+      desc: 'Card access, magnetic door locks, and keyless biometric security locks for restricted office sections and server rooms.'
+    },
+    'amc': {
+      title: 'Annual Maintenance Contracts (AMC)',
+      img: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=500&auto=format&fit=crop',
+      desc: 'Hassle-free yearly AMC packages including regular camera cleaning, wiring inspections, software updates, and priority emergency repairs.'
+    },
+    'mobile': {
+      title: 'Remote Mobile Live Monitoring',
+      img: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=500&auto=format&fit=crop',
+      desc: 'Configuration of smartphone apps allowing you to monitor live security camera footage on Android & iOS devices anywhere, anytime.'
+    }
+  };
+
+  function showService(serviceKey) {
+    const data = serviceData[serviceKey];
+    if (data) {
+      document.getElementById('viewerTitle').innerText = data.title;
+      document.getElementById('viewerImg').src = data.img;
+      document.getElementById('viewerImg').alt = data.title;
+      document.getElementById('viewerDesc').innerText = data.desc;
+    }
+  }
+</script>
 
 </body>
 </html>
