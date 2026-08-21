@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="480" viewBox="0 0 720 480">
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#eef6ff"/><stop offset="1" stop-color="#d8e9fb"/></linearGradient></defs>
+<rect width="720" height="480" rx="24" fill="url(#bg)"/>
+<circle cx="85" cy="80" r="48" fill="#0b3a70"/><text x="85" y="91" text-anchor="middle" font-family="Arial" font-size="27" font-weight="900" fill="#fff">SP</text>
+
+          <rect x="215" y="65" width="290" height="410" rx="28" fill="#ffffff" stroke="#0b3a70" stroke-width="9"/>
+          <rect x="270" y="115" width="180" height="120" rx="15" fill="#071b31"/>
+          <path d="M360 145c-48 0-60 70 0 70s48-70 0-70zm0 18c-25 0-29 35 0 35s25-35 0-35z" fill="#1987e5"/>
+          <rect x="275" y="275" width="170" height="18" rx="9" fill="#b9c9d8"/>
+          <rect x="275" y="315" width="125" height="18" rx="9" fill="#b9c9d8"/>
+          <circle cx="360" cy="395" r="35" fill="#20c463"/>
+          <path d="M345 395l10 10 22-25" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round"/>
+        
+<text x="360" y="415" text-anchor="middle" font-family="Arial" font-size="25" font-weight="800" fill="#06264a">Access Control</text>
+<text x="360" y="448" text-anchor="middle" font-family="Arial" font-size="15" fill="#617080">Secure Entry System</text>
+</svg>
