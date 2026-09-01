@@ -99,7 +99,7 @@ section{
 
 
 
-/* ================= HEADER ================= */
+/* HEADER */
 
 .sticky-header{
 
@@ -141,8 +141,6 @@ section{
 
   gap:12px;
 
-  min-width:0;
-
 }
 
 
@@ -156,13 +154,6 @@ section{
 
   object-position:left center;
 
-  flex:0 0 auto;
-
-}
-
-
-.brand-copy{
-  min-width:0;
 }
 
 
@@ -270,8 +261,6 @@ section{
 
   box-shadow:0 5px 14px rgba(32,196,99,.24);
 
-  transition:.2s;
-
 }
 
 
@@ -281,7 +270,7 @@ section{
 
 
 
-/* ================= NAVIGATION ================= */
+/* NAVIGATION */
 
 .navbar{
   background:var(--navy);
@@ -322,8 +311,6 @@ section{
 
   font-weight:800;
 
-  transition:.2s;
-
 }
 
 
@@ -338,13 +325,9 @@ section{
 
 
 
-/* ================= HERO ================= */
+/* HERO */
 
 .hero{
-
-  position:relative;
-
-  overflow:hidden;
 
   color:#ffffff;
 
@@ -367,10 +350,6 @@ section{
 
 
 .hero-grid{
-
-  position:relative;
-
-  z-index:1;
 
   display:grid;
 
@@ -405,8 +384,6 @@ section{
   line-height:1.05;
 
   font-weight:900;
-
-  letter-spacing:-1px;
 
 }
 
@@ -457,8 +434,6 @@ section{
 
   font-weight:900;
 
-  transition:.2s;
-
 }
 
 
@@ -477,12 +452,6 @@ section{
 
   color:#ffffff;
 
-}
-
-
-.primary-btn:hover,
-.outline-btn:hover{
-  transform:translateY(-2px);
 }
 
 
@@ -561,8 +530,6 @@ section{
 
   object-fit:cover;
 
-  object-position:center;
-
   border-radius:13px;
 
 }
@@ -578,17 +545,6 @@ section{
 
   padding:10px 4px 1px;
 
-  display:flex;
-
-  gap:7px;
-
-  align-items:center;
-
-}
-
-
-.photo-caption i{
-  color:#ffc247;
 }
 
 
@@ -628,8 +584,6 @@ section{
 
   border:3px solid #ffffff;
 
-  box-shadow:0 8px 20px rgba(0,0,0,.25);
-
 }
 
 
@@ -637,13 +591,11 @@ section{
 
   font-size:18px;
 
-  line-height:1.05;
-
 }
 
 
 
-/* ================= COMMON ================= */
+/* COMMON */
 
 .section{
   padding:60px 0;
@@ -702,7 +654,7 @@ section{
 
 
 
-/* ================= ABOUT ================= */
+/* ABOUT */
 
 .about{
 
@@ -777,12 +729,11 @@ section{
 
 .stats{
 
-  background:
-    linear-gradient(
-      150deg,
-      var(--navy),
-      var(--blue)
-    );
+  background:linear-gradient(
+    150deg,
+    var(--navy),
+    var(--blue)
+  );
 
   color:#ffffff;
 
@@ -803,8 +754,6 @@ section{
 
   color:#ffc247;
 
-  font-weight:900;
-
 }
 
 
@@ -818,7 +767,7 @@ section{
 
 
 
-/* ================= SERVICES ================= */
+/* SERVICES */
 
 .service-grid{
 
@@ -892,6 +841,43 @@ section{
 }
 
 
+/* ================= AMC SPECIAL IMAGE ================= */
+
+/* Shows complete AMC image without cropping */
+
+.amc-image{
+
+  height:320px;
+
+  background:#ffffff;
+
+  padding:8px;
+
+}
+
+
+.amc-image img{
+
+  width:100%;
+
+  height:100%;
+
+  object-fit:contain !important;
+
+  object-position:center;
+
+}
+
+
+/* Do not zoom AMC image */
+
+.service:hover .amc-image img{
+
+  transform:none;
+
+}
+
+
 .service-body{
 
   padding:18px;
@@ -920,7 +906,7 @@ section{
 
 
 
-/* ================= PRODUCTS ================= */
+/* PRODUCTS */
 
 .product-grid{
 
@@ -946,17 +932,6 @@ section{
   text-align:center;
 
   box-shadow:0 5px 18px rgba(0,0,0,.06);
-
-  transition:.22s;
-
-}
-
-
-.product:hover{
-
-  transform:translateY(-4px);
-
-  box-shadow:var(--shadow);
 
 }
 
@@ -1005,7 +980,7 @@ section{
 
 
 
-/* ================= OUR WORK ================= */
+/* OUR WORK */
 
 .work-grid{
 
@@ -1047,15 +1022,6 @@ section{
 
   display:block;
 
-  transition:.35s;
-
-}
-
-
-.work:hover img{
-
-  transform:scale(1.06);
-
 }
 
 
@@ -1077,17 +1043,16 @@ section{
 
   font-weight:800;
 
-  background:
-    linear-gradient(
-      transparent,
-      rgba(0,0,0,.80)
-    );
+  background:linear-gradient(
+    transparent,
+    rgba(0,0,0,.80)
+  );
 
 }
 
 
 
-/* ================= WHY US ================= */
+/* WHY US */
 
 .why-grid{
 
@@ -1111,8 +1076,6 @@ section{
   text-align:center;
 
   background:#ffffff;
-
-  box-shadow:0 5px 16px rgba(0,0,0,.05);
 
 }
 
@@ -1138,7 +1101,7 @@ section{
 
 
 
-/* ================= CUSTOMER REVIEWS ================= */
+/* CUSTOMER REVIEWS */
 
 .reviews-bg{
   background:#f8fbfe;
@@ -1167,17 +1130,6 @@ section{
   padding:24px;
 
   box-shadow:0 8px 24px rgba(0,0,0,.07);
-
-  transition:.25s;
-
-}
-
-
-.review:hover{
-
-  transform:translateY(-5px);
-
-  box-shadow:var(--shadow);
 
 }
 
@@ -1252,7 +1204,7 @@ section{
 
 
 
-/* ================= ENQUIRY ================= */
+/* ENQUIRY */
 
 .enquiry{
 
@@ -1337,17 +1289,6 @@ section{
 }
 
 
-.form-grid input:focus,
-.form-grid select:focus,
-.form-grid textarea:focus{
-
-  border-color:var(--blue);
-
-  box-shadow:0 0 0 3px rgba(18,97,181,.1);
-
-}
-
-
 .form-grid textarea{
 
   grid-column:1/-1;
@@ -1377,17 +1318,6 @@ section{
 
   cursor:pointer;
 
-  transition:.2s;
-
-}
-
-
-.form-grid button:hover{
-
-  filter:brightness(.95);
-
-  transform:translateY(-1px);
-
 }
 
 
@@ -1395,12 +1325,11 @@ section{
 
   color:#ffffff;
 
-  background:
-    linear-gradient(
-      145deg,
-      var(--navy),
-      var(--blue)
-    );
+  background:linear-gradient(
+    145deg,
+    var(--navy),
+    var(--blue)
+  );
 
   display:flex;
 
@@ -1469,7 +1398,7 @@ section{
 
 
 
-/* ================= FOOTER ================= */
+/* FOOTER */
 
 footer{
 
@@ -1536,7 +1465,7 @@ footer{
 
 
 
-/* ================= FLOATING WHATSAPP ================= */
+/* FLOATING WHATSAPP */
 
 .floating-wa{
 
@@ -1568,18 +1497,11 @@ footer{
 
   z-index:999;
 
-  transition:.2s;
-
-}
-
-
-.floating-wa:hover{
-  transform:scale(1.06);
 }
 
 
 
-/* ================= TABLET ================= */
+/* TABLET */
 
 @media(max-width:1050px){
 
@@ -1603,7 +1525,7 @@ footer{
 
 
 
-/* ================= MOBILE ================= */
+/* MOBILE */
 
 @media(max-width:760px){
 
@@ -1628,11 +1550,6 @@ footer{
 
   .brand h1{
     font-size:20px;
-  }
-
-
-  .brand small{
-    font-size:8px;
   }
 
 
@@ -1680,11 +1597,6 @@ footer{
   }
 
 
-  .hero-sub{
-    font-size:13px;
-  }
-
-
   .hero-visual{
     min-height:auto;
   }
@@ -1692,11 +1604,6 @@ footer{
 
   .hero-photo img{
     height:280px;
-  }
-
-
-  .trust-badge{
-    left:-3px;
   }
 
 
@@ -1720,6 +1627,13 @@ footer{
   .service-img{
 
     height:210px;
+
+  }
+
+
+  .amc-image{
+
+    height:270px;
 
   }
 
@@ -1781,7 +1695,7 @@ footer{
 
 
 
-/* ================= SMALL MOBILE ================= */
+/* SMALL MOBILE */
 
 @media(max-width:480px){
 
@@ -1810,8 +1724,6 @@ footer{
   }
 
 
-  /* ONE CARD PER ROW FOR BIGGER IMAGES */
-
   .service-grid,
   .product-grid,
   .work-grid{
@@ -1824,6 +1736,17 @@ footer{
   .service-img{
 
     height:260px;
+
+  }
+
+
+  /* AMC BIG AND FULL IMAGE ON MOBILE */
+
+  .amc-image{
+
+    height:340px;
+
+    padding:10px;
 
   }
 
